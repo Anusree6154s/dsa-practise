@@ -92,6 +92,11 @@ Common Problems:
    - Given an array of positive integers and a target sum, find the minimum length of a contiguous subarray whose sum is greater than or equal to the target sum.
    - This problem can be solved using the sliding window technique along with the suffix sum array.
 
+## . Relation between Prefix and Suffix <a id="relatio"></a>
+sum= prefix at i +suffix at i+ element at i
+=> suffix at i= sum-prefix at i + element at i
+=> **suffix[i] = sum - prefix[i] +arr[i]**
+
 ## . Prefix and Suffix Problems <a id="both"></a>
 
 1. Find Equal Partistion Index
@@ -158,6 +163,7 @@ There are 2 ways of writing this code:
    ```
 
 2. maxEndingHere automatically gets restted as the current element of array in Math.max()
+
    ```javascript
    function maxSubarraySum(nums) {
      let maxSoFar = -Infinity; // Initialize maxSum to negative infinity
@@ -175,28 +181,29 @@ There are 2 ways of writing this code:
 ### <u>Questions</u>
 
 #### <span style="color:#ff69b4;">Q1. What is Kadane's Algorithm?</span>
-  - The simple **idea** of Kadane's Algorithm **is to look for all positive contiguous segments of array** (maxEndingHere is used for this) **[i.e, if it is negative, take current array element value and dump the sum got till now]**
-  - Keep track of maximum sum contiguous segment among all positive segments (maxSoFar used for this)
-  - **Each time we get a positive sum, compare it with maxSoFar and update it if maxEnding Here is greater than existing maxSoFar.**
+
+- The simple **idea** of Kadane's Algorithm **is to look for all positive contiguous segments of array** (maxEndingHere is used for this) **[i.e, if it is negative, take current array element value and dump the sum got till now]**
+- Keep track of maximum sum contiguous segment among all positive segments (maxSoFar used for this)
+- **Each time we get a positive sum, compare it with maxSoFar and update it if maxEnding Here is greater than existing maxSoFar.**
 
 ### <u>Problems</u>
-  - Crio
-    1. Find the largest sum contiguous subarray
-  - Chatgpt
-    1. Maximum Subarray Sum: 
-        - Given an array of integers, find the contiguous subarray with the largest sum.
-    2. Maximum Product Subarray: 
-        - Given an array of integers, find the contiguous subarray with the largest product.
-    3. Longest Continuous Increasing Subsequence:
-        -  Given an array of integers, find the length of the longest continuous increasing subsequence.
-    4. Longest Continuous Decreasing Subsequence: 
-        - Given an array of integers, find the length of the longest continuous decreasing subsequence.
-    5. Maximum Sum Circular Subarray: 
-        - Given a circular array of integers, find the maximum possible sum of a non-empty subarray.
-    6. Minimum Window Subarray Sum: 
-        - Given an array of positive integers and a target sum, find the minimum length of a contiguous subarray whose sum is greater than or equal to the target sum.
-    7. Count of Subarrays with Given Sum: 
-        - Given an array of integers and an integer target, count the number of contiguous subarrays whose sum is equal to the target.
-    8. Maximum Sum of Two Non-Overlapping Subarrays: 
-        - Given an array of integers and two non-negative integers k1 and k2, find the maximum sum of any two non-overlapping subarrays of lengths k1 and k2.
 
+- Crio
+  1. Find the largest sum contiguous subarray
+- Chatgpt
+  1. Maximum Subarray Sum:
+     - Given an array of integers, find the contiguous subarray with the largest sum.
+  2. Maximum Product Subarray:
+     - Given an array of integers, find the contiguous subarray with the largest product.
+  3. Longest Continuous Increasing Subsequence:
+     - Given an array of integers, find the length of the longest continuous increasing subsequence.
+  4. Longest Continuous Decreasing Subsequence:
+     - Given an array of integers, find the length of the longest continuous decreasing subsequence.
+  5. Maximum Sum Circular Subarray:
+     - Given a circular array of integers, find the maximum possible sum of a non-empty subarray.
+  6. Minimum Window Subarray Sum:
+     - Given an array of positive integers and a target sum, find the minimum length of a contiguous subarray whose sum is greater than or equal to the target sum.
+  7. Count of Subarrays with Given Sum:
+     - Given an array of integers and an integer target, count the number of contiguous subarrays whose sum is equal to the target.
+  8. Maximum Sum of Two Non-Overlapping Subarrays:
+     - Given an array of integers and two non-negative integers k1 and k2, find the maximum sum of any two non-overlapping subarrays of lengths k1 and k2.
