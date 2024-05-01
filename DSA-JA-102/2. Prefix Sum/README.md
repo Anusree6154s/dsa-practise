@@ -92,7 +92,7 @@ Common Problems:
    - Given an array of positive integers and a target sum, find the minimum length of a contiguous subarray whose sum is greater than or equal to the target sum.
    - This problem can be solved using the sliding window technique along with the suffix sum array.
 
-## 1. Prefix and Suffix Problems <a id="both"></a>
+## 3. Prefix and Suffix Problems <a id="both"></a>
 
 1. Find Equal Partistion Index
 2. Maximum Subarray Sum Circular:

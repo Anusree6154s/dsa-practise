@@ -8,25 +8,53 @@
 ## 1. Sliding Window Pattern <a id="sliding"></a>
 
 ### <u>Template</u>
-
-```javascript
-fixedSize() {
-    let left = 0, right = 0; // Initialization
-    while (right < n) { // Stopping condition
-        // Add right element into the window
-        
-        if (right - left + 1 === k) { // If window size is reached
-            if (condition satisfied) { // Check if condition is satisfied
-                // Update the answer
+1. Fixed Size Window Template 
+      ```javascript
+      fixedSize() {
+         let left = 0, right = 0; // Initialization
+         while (right < n) { // Stopping condition
+            // Add right element into the window
+            
+            if (right - left + 1 === k) { // If window size is reached
+                  if (condition satisfied) { // Check if condition is satisfied
+                     // Update the answer
+                  }
+                  // Remove left element from the window
+               
+                  left++; // Reduce the window size
             }
-            // Remove left element from the window
-           
-            left++; // Reduce the window size
-        }
-        right++; // Increase the window size
-    }
-}
-```
+            right++; // Increase the window size
+         }
+      }
+      ```
+
+2. Variable Size Window Template 
+   - To find largest window
+      ```javascript
+         left = 0, right = 0; //Initialization
+         while(right < n){
+            //add right element into the window
+            while(condition never going to be satisfied by increasing the window size){
+               //remove left element from the window
+               left++; //Reduce the window size
+            }
+            //update the answer
+            right++; //Increase the window size
+         }
+      ```
+   - To find smallest window
+      ```javascript
+         left = 0, right = 0; //Initialization
+         while(right < n){
+            //add right element into the window
+            while(condition is satisfied){
+               //update the answer
+               //remove left element from the window
+               left++; //Reduce the window size
+            }
+            right++; //Increase the window size
+         }
+      ```
 
 ### <u>Questions</u>
 
