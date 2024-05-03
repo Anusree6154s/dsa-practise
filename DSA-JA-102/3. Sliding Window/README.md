@@ -76,3 +76,24 @@
       - (slide the window along looking for the permutations of the pattern in the window)
   6. Given a string and a set of words of the same length, find all substrings that are a concatenation of all the words exactly once 
       - (similar to permutation above, but with words instead of letters)
+- Chtagpt
+   1. **Maximum Sum Subarray of Size K**:
+      - Given an array of integers and a positive integer K, find the maximum sum of a subarray of size K.
+   2. **Smallest Subarray with a Given Sum**:
+      - Given an array of positive integers and a target sum, find the length of the smallest contiguous subarray whose sum is greater than or equal to the target sum.
+   3. **Longest Substring with K Distinct Characters**:
+      - Given a string, find the length of the longest substring with at most K distinct characters.
+   4. **Longest Subarray with Ones After Replacement**:
+      - Given an array of integers containing 0s and 1s and an integer K, find the length of the longest subarray with all 1s after replacing at most K 0s.
+   5. **Fruits into Baskets**:
+      - Given an array of characters where each character represents a fruit tree, you are given two baskets, and your goal is to put maximum number of fruits in each basket. The baskets can only contain two different types of fruits.
+   6. **Minimum Size Subarray Sum**:
+      - Given an array of positive integers and a target sum, find the minimum length of a contiguous subarray of which the sum is greater than or equal to the target sum.
+   7. **Permutation in String**:
+      - Given two strings s1 and s2, write a function to return true if s2 contains the permutation of s1. In other words, one of the first string's permutations is the substring of the second string.
+   8. **Find All Anagrams in a String**:
+      - Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
+   9. **Substring with Concatenation of All Words**:
+      - You are given a string s and an array of strings words. You have to find all the starting indices of substrings in s that are a concatenation of all the words in words exactly once and without any intervening characters.
+   10. **Longest Repeating Character Replacement**:
+      - Given a string s that consists of only uppercase English letters, you can perform at most k operations on that string. In one operation, you can choose any character of the string and change it to any other uppercase English character. Find the length of the longest subarray containing repeating letters you can get after performing the above operations.

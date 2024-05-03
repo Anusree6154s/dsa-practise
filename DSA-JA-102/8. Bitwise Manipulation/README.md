@@ -115,7 +115,7 @@ Masks (particular combination of bits) can be created and used in conjunction wi
     - Else **if the answer is 0**, then the **bit not set**
 
 
-## 5. Bit Manipulation Problems<a id="bin"></a>
+## 5. Bit Manipulation Problems<a id="problems"></a>
 ***Tip:***
 *Writing smaller methods like FlipBit(), IsBitSet(), SetBit(), GetBit() are very useful to have while solving problems.*
 
@@ -125,3 +125,24 @@ Masks (particular combination of bits) can be created and used in conjunction wi
     3. Swap the Odd and Even bits of an integer
     4. Reverse the bits of a given integer
     5. Two non repeating numbers
+- chatgpt
+    1. **Single Number**:
+        - Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+    2. **Number of 1 Bits**:
+        - Write a function that takes an unsigned integer and returns the number of '1' bits it has (also known as the Hamming weight).
+    3. **Reverse Bits**:
+        - Reverse bits of a given 32 bits unsigned integer.
+    4. **Power of Two**:
+        - Given an integer n, write a function to determine if it is a power of two.
+    5. **Counting Bits**:
+        - Given a non-negative integer num, for every number i in the range 0 ≤ i ≤ num, calculate the number of 1's in their binary representation and return them as an array.
+    6. **Bitwise AND of Numbers Range**:
+        - Given two integers left and right that represent the range [left, right], return the bitwise AND of all numbers in this range, inclusive.
+    7. **Bitwise ORs of Subarrays**:
+        - We have an array arr of non-negative integers. For every (contiguous) subarray sub = [arr[i], arr[i + 1], ..., arr[j]] (with i <= j), we take the bitwise OR of all the elements in sub, obtaining OR(sub). Return the number of possible results.
+    8. **Maximum XOR of Two Numbers in an Array**:
+        - Given an integer array nums, return the maximum result of nums[i] XOR nums[j], where 0 ≤ i ≤ j < n.
+    9. **Bitwise AND of Numbers Range**:
+        - Given two integers left and right that represent the range [left, right], return the bitwise AND of all numbers in this range, inclusive.
+    10. **Next Greater Element III**:
+        - Given a positive integer n, find the smallest integer which has exactly the same digits existing in the integer n and is greater in value than n. If no such positive integer exists, return -1.

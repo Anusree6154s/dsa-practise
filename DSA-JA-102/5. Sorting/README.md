@@ -27,6 +27,29 @@
   - **In-place sorting** techniques in data structures **modify the ordering of array elements within the original array**. Examples of In place sorting techniques are: **Bubble Sort, Selection Sort.**
   - On the other hand, **Not-in-Place sorting** techniques **use an auxiliary data structure to sort the original array.** Some examples of Not in Place sorting algorithms are: **Merge Sort, Quick Sort.**
 
+### <u>Problems</u>
+- chatgpt
+  1. **Sorting an Array**:
+    - Implementing sorting algorithms like Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort, etc., to sort an array of numbers or strings.
+  2. **Sort Colors**:
+    - Given an array with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+  3. **Kth Largest Element in an Array**:
+    - Given an unsorted array of integers, find the kth largest element in the array.
+  4. **Top K Frequent Elements**:
+    - Given an integer array, return the k most frequent elements.
+  5. **Sort Characters By Frequency**:
+    - Given a string, sort it in decreasing order based on the frequency of characters.
+  6. **Wiggle Sort**:
+    - Given an unsorted array, reorder it in-place such that nums[0] <= nums[1] >= nums[2] <= nums[3]....
+  7. **Meeting Rooms II**:
+    - Given an array of meeting time intervals consisting of start and end times [[s1, e1], [s2, e2], ...], find the minimum number of conference rooms required.
+  8. **Find the Duplicate Number**:
+    - Given an array containing n + 1 integers where each integer is between 1 and n (inclusive), find the duplicate number.
+  9. **Insertion Sort List**:
+    - Sort a linked list using insertion sort.
+  10. **Find All Duplicates in an Array**:
+      - Given an array of integers, 1 ≤ a[i] ≤ n (n is the size of the array), some elements appear twice and others appear once. Find all the elements that appear twice in the array.
+
 ## 2. Types of Sorting Techniques <a id="types"></a>
 
 ### 1. Bubble Sort:
@@ -57,6 +80,7 @@
   ```
 - Visualisation:
     ![](./images/Bubble-Sort-2.gif)
+    
 
 ### 2. Selection Sort:
 

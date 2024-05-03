@@ -34,18 +34,17 @@ function prefixSum(nums) {
 
 ### <u>Problems</u>
 
-Common Problems:
-
-1. Range Sum Queries:
-   - Given an array of numbers, preprocess it to efficiently answer queries that ask for the sum of elements within a specified range.
-2. Subarray Sum Equals K:
-   - Given an array of integers and an integer k, find the total number of continuous subarrays whose sum equals to k.
-3. Maximum Subarray Sum:
-   - Given an array of integers, find the contiguous subarray with the largest sum.
-4. Minimum Subarray Length with Sum at Least K:
-   - Given an array of integers and an integer k, find the length of the smallest contiguous subarray with a sum at least k.
-5. Count of Subarrays with Given Product:
-   - Given an array of positive integers and an integer target, count the number of contiguous subarrays whose product is equal to target.
+- Chatgpt
+  1.  Range Sum Queries:
+      - Given an array of numbers, preprocess it to efficiently answer queries that ask for the sum of elements within a specified range.
+  2.  Subarray Sum Equals K:
+      - Given an array of integers and an integer k, find the total number of continuous subarrays whose sum equals to k.
+  3.  Maximum Subarray Sum:
+      - Given an array of integers, find the contiguous subarray with the largest sum.
+  4.  Minimum Subarray Length with Sum at Least K:
+      - Given an array of integers and an integer k, find the length of the smallest contiguous subarray with a sum at least k.
+  5.  Count of Subarrays with Given Product:
+      - Given an array of positive integers and an integer target, count the number of contiguous subarrays whose product is equal to target.
 
 ## 2. Suffix Sum <a id="suffix"></a>
 
@@ -74,47 +73,48 @@ function suffixSum(nums) {
 - Output : suffixSum[] = {60, 50, 30, 20, 15}
 
 ### <u>Problems</u>
-
-Common Problems:
-
-1. Range Sum Queries:
-   - Given an array of numbers and multiple queries asking for the sum of elements within a specified range, precompute the suffix sum array and use it to efficiently answer the queries.
-2. Maximum Subarray Sum:
-   - Given an array of integers, find the contiguous subarray with the largest sum.
-   - This problem can be solved by computing the suffix sum array and then finding the maximum subarray sum among all suffixes.
-3. Minimum Subarray Length with Sum at Least K:
-   - Given an array of integers and an integer k, find the length of the smallest contiguous subarray with a sum at least k.
-   - This problem can also be solved using the suffix sum array along with binary search.
-4. Count of Subarrays with Given Sum:
-   - Given an array of integers and an integer target, count the number of contiguous subarrays whose sum is equal to the target.
-   - This problem can be efficiently solved using the suffix sum array along with a hashmap to store the prefix sums.
-5. Minimum Window Subarray Sum:
-   - Given an array of positive integers and a target sum, find the minimum length of a contiguous subarray whose sum is greater than or equal to the target sum.
-   - This problem can be solved using the sliding window technique along with the suffix sum array.
+- Chatgpt
+   1. Range Sum Queries:
+      - Given an array of numbers and multiple queries asking for the sum of elements within a specified range, precompute the suffix sum array and use it to efficiently answer the queries.
+   2. Maximum Subarray Sum:
+      - Given an array of integers, find the contiguous subarray with the largest sum.
+      - This problem can be solved by computing the suffix sum array and then finding the maximum subarray sum among all suffixes.
+   3. Minimum Subarray Length with Sum at Least K:
+      - Given an array of integers and an integer k, find the length of the smallest contiguous subarray with a sum at least k.
+      - This problem can also be solved using the suffix sum array along with binary search.
+   4. Count of Subarrays with Given Sum:
+      - Given an array of integers and an integer target, count the number of contiguous subarrays whose sum is equal to the target.
+      - This problem can be efficiently solved using the suffix sum array along with a hashmap to store the prefix sums.
+   5. Minimum Window Subarray Sum:
+      - Given an array of positive integers and a target sum, find the minimum length of a contiguous subarray whose sum is greater than or equal to the target sum.
+      - This problem can be solved using the sliding window technique along with the suffix sum array.
 
 ## . Relation between Prefix and Suffix <a id="relatio"></a>
+
 sum= prefix at i +suffix at i+ element at i
 => suffix at i= sum-prefix at i + element at i
 => **suffix[i] = sum - prefix[i] +arr[i]**
 
 ## . Prefix and Suffix Problems <a id="both"></a>
 
-1. Find Equal Partistion Index
-2. Maximum Subarray Sum Circular:
-   - Given a circular array of integers, find the maximum possible sum of a non-empty subarray.
-   - This problem can be solved by applying both prefix sum and suffix sum techniques.
-   - You can compute the maximum subarray sum within the original array using the Kadane's algorithm and handle the circular aspect by computing the maximum subarray sum for the inverted array (where signs are flipped) and subtracting the sum of the inverted array from the total sum of the original array.
-3. Split Array Largest Sum:
-   - Given an array of positive integers and an integer m, partition the array into m non-empty contiguous subarrays and minimize the largest sum among these m subarrays.
-   - This problem can be solved using dynamic programming with prefix sum and suffix sum arrays.
-   - You can iterate through the possible partition positions and use the prefix sum and suffix sum arrays to efficiently compute the sum of each subarray.
-4. Valid Mountain Array:
-   - Given an array of integers, determine if the array can be rearranged into a mountain array. A mountain array is defined as an array that first increases to a peak element and then decreases.
-   - This problem can be solved using both prefix sum and suffix sum techniques.
-   - You can find the peak element using prefix sum and suffix sum arrays and check if it satisfies the mountain array conditions.
-5. Minimum Moves to Equal Array Elements II:
-   - Given an integer array, find the minimum number of moves required to make all array elements equal, where a move is incrementing or decrementing any element by 1.
-   - This problem can be solved using the median value of the array and prefix sum and suffix sum techniques to compute the total number of moves required.
+- Crio
+  1.  Find Equal Partition Index
+- Chatgpt
+  1.  Maximum Subarray Sum Circular:
+      - Given a circular array of integers, find the maximum possible sum of a non-empty subarray.
+      - This problem can be solved by applying both prefix sum and suffix sum techniques.
+      - You can compute the maximum subarray sum within the original array using the Kadane's algorithm and handle the circular aspect by computing the maximum subarray sum for the inverted array (where signs are flipped) and subtracting the sum of the inverted array from the total sum of the original array.
+  2.  Split Array Largest Sum:
+      - Given an array of positive integers and an integer m, partition the array into m non-empty contiguous subarrays and minimize the largest sum among these m subarrays.
+      - This problem can be solved using dynamic programming with prefix sum and suffix sum arrays.
+      - You can iterate through the possible partition positions and use the prefix sum and suffix sum arrays to efficiently compute the sum of each subarray.
+  3.  Valid Mountain Array:
+      - Given an array of integers, determine if the array can be rearranged into a mountain array. A mountain array is defined as an array that first increases to a peak element and then decreases.
+      - This problem can be solved using both prefix sum and suffix sum techniques.
+      - You can find the peak element using prefix sum and suffix sum arrays and check if it satisfies the mountain array conditions.
+  4.  Minimum Moves to Equal Array Elements II:
+      - Given an integer array, find the minimum number of moves required to make all array elements equal, where a move is incrementing or decrementing any element by 1.
+      - This problem can be solved using the median value of the array and prefix sum and suffix sum techniques to compute the total number of moves required.
 
 ## 4. Subarray, Subsequence, Subset, Substring <a id="sub"></a>
 
@@ -134,6 +134,42 @@ sum= prefix at i +suffix at i+ element at i
    - (), (1), (2), (3), (4), (1,2), (1,3),(1,4), (2,3), (2,4), (3,4), (1,2,3), (1,2,4), (1,3,4), (2,3,4), (1,2,3,4)
 4. Substring (string)
    - A substring is a **contiguous sequence** of characters **within a string**
+
+### <u>Problems</u>
+
+- Chatgpt
+   1. Subarray:
+      - Find the maximum sum subarray.
+      - Find the minimum sum subarray.
+      - Find the contiguous subarray with the largest product.
+      - Find the contiguous subarray with the smallest product.
+      - Find the length of the longest increasing subarray.
+      - Find the length of the longest decreasing subarray.
+      - Find the subarray with a given sum.
+      - Find the subarray with the largest sum less than or equal to a given sum.
+      - Find the subarray with the smallest sum greater than or equal to a given sum.
+      - Find the subarray with the maximum number of distinct elements.
+   2. Subsequence:
+      - Check if one string is a subsequence of another.
+      - Find the longest common subsequence of two strings.
+      - Find the length of the shortest common supersequence of two strings.
+      - Determine if a string can be transformed into another string by deleting some characters.
+      - Count the number of distinct subsequences in a string.
+      - Find the length of the longest palindromic subsequence.
+   3. Subset:
+      - Generate all subsets of a set (power set).
+      - Find all unique subsets that sum up to a given target.
+      - Find the subset with the maximum sum.
+      - Find the subset with the minimum sum.
+      - Determine if one set is a subset of another.
+      - Count the number of subsets with a given sum.
+   4. Substring:
+      - Find the length of the longest substring without repeating characters.
+      - Find the longest palindromic substring.
+      - Find the longest substring with at most K distinct characters.
+      - Find the longest common substring of two strings.
+      - Find the shortest substring containing all characters of a given set.
+      - Find the longest substring with equal number of 0s and 1s in a binary string.
 
 ## 4. Kadane's Algorithm <a id="kadane"></a>
 

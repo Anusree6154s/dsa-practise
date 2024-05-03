@@ -87,27 +87,27 @@ An **efficient way to find the broken version** would be to run a binary search 
 **Continue dividing until you discover when the bug was introduced**. This approach comes in quite handy especially if you make small commits.
 
 ### <u> Binary Search Problems</u>
-
-1. Working on **sorted array** - should consider Binary Search as an option.
-   1. Find number of occurrences of an element in a large search space (Crio)
-   2. First or last occurrence of an element in a large search space (Crio)
-2. Come up with the **Upper and Lower Bound values**, or Problems related to “Maximise the minimum” or “Minimize the maximum” something are usually solved using Binary Search (optimization problems)
-   1. Koko eating bananas (Leetcode)
-   2. Square root of a number (Leetcode)
-      Search for an integer N in a sorted Matrix
-3. Find the median of 2 sorted arrays
-4. Find the first and last position of element in sorted array (or range of the element or number of occurrences)
-5. Find the duplicate in a array containing n + 1 integers where each integer is between 1 and n
-   OR Find an integer that appears more than once in the array
-6. Given a sorted matrix, find the overall median of the matrix
-7. Find the Kth smallest element in a sorted matrix
-8. Compute square root of an integer (Hint: The square root of an integer >= 2 is always smaller than x/2)
-9. Find the element that occurs once in a sorted array where all other elements occur twice
-10. Given a sorted array of strings that is interspersed with empty strings, find the location of a given string
-11. Search for a number in a sorted array where we don’t know whether array is in ascending or descending order
-12. Given an array of lowercase letters sorted in ascending order, find the smallest letter in the given array greater than a given key
-    OR Given an array of numbers in ascending order, find an element that has the minimum difference with the given key
-13. Find the maximum value in a given Bitonic array (array which first increases then decreases and all elements are unique)
+- chatgpt 
+  1. Working on **sorted array** - should consider Binary Search as an option.
+    1. Find number of occurrences of an element in a large search space (Crio)
+    2. First or last occurrence of an element in a large search space (Crio)
+  2. Come up with the **Upper and Lower Bound values**, or Problems related to “Maximise the minimum” or “Minimize the maximum” something are usually solved using Binary Search (optimization problems)
+    1. Koko eating bananas (Leetcode)
+    2. Square root of a number (Leetcode)
+        Search for an integer N in a sorted Matrix
+  3. Find the median of 2 sorted arrays
+  4. Find the first and last position of element in sorted array (or range of the element or number of occurrences)
+  5. Find the duplicate in a array containing n + 1 integers where each integer is between 1 and n
+    OR Find an integer that appears more than once in the array
+  6. Given a sorted matrix, find the overall median of the matrix
+  7. Find the Kth smallest element in a sorted matrix
+  8. Compute square root of an integer (Hint: The square root of an integer >= 2 is always smaller than x/2)
+  9. Find the element that occurs once in a sorted array where all other elements occur twice
+  10. Given a sorted array of strings that is interspersed with empty strings, find the location of a given string
+  11. Search for a number in a sorted array where we don’t know whether array is in ascending or descending order
+  12. Given an array of lowercase letters sorted in ascending order, find the smallest letter in the given array greater than a given key
+      OR Given an array of numbers in ascending order, find an element that has the minimum difference with the given key
+  13. Find the maximum value in a given Bitonic array (array which first increases then decreases and all elements are unique)
 
 ## 3. Ternary Search <a id="ternary"></a>
 
