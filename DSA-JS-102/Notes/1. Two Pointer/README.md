@@ -41,15 +41,20 @@ function twoPointer(nums, target) {
 ## 2. Problems <a id="problems"></a>
 
 - Crio
-  1. Two Sum
+  1. ✅(prob#5 & 1) Two Sum
      - to get 2 elements that sum to the target value
      - For sorted array
      - For unsorted array
   2. Three Sum
-     - to get 3 elements that sum to the target value
-     - For sorted and unsorted array
-  3. Merge two sorted arrays
-  4. Find/Remove Duplicates
+      1. Plain Three Sum
+          - to get 3 elements that sum to the target value
+          - For sorted and unsorted array
+      2. Three Sum, with each term of the sum to be in sorted order
+          - same as plain three sum, but each element of teh three sum must be in sorted order (left< mid < right)
+          - ✅(prob#3)For sorted array 
+          - For unsorted array
+  3. ✅(prob#2)Merge two sorted arrays
+  4. ✅(prob#4)Find/Remove Duplicates
   5. Move all 0s in an integer array to one end maintaining order of other elements
   6. Confirm if a given string is a palindrome
   7. Trapping rain water

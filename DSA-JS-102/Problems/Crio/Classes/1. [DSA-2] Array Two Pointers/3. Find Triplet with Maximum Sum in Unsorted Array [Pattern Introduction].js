@@ -1,39 +1,15 @@
+//HARD
+//Three sum with sorted terms as answer
+
 // Problem Description
 // Given an array nums, you need to find the maximum sum of triplet (nums[i] + nums[j] + nums[k]) such that 0 <= i < j < k and nums[i] < nums[j] < nums[k]. If no such triplet exists print 0.
 
-// Input format
-// There are 2t+1 lines of input
-
-// First line contains an integer t - No of test cases.
-
-// First line of each test case contains an integer n - No of elements in the array.
-
-// Second line of each test case contains N space separated integers - The array nums.
-
-// Output format
-// For each test case print the answer in a new line.
-
 // Sample Input 1
-// 3
-
 // 7
-
 // 3 7 4 2 5 7 5
-
-// 4
-
-// 5 2 4 5
-
-// 3
-
-// 3 2 1
 
 // Sample Output 1
 // 16
-
-// 11
-
-// 0
 
 function maxSumTriplet(n, nums) {
     let left=0, right=2
@@ -65,3 +41,26 @@ function maxSumTriplet(n, nums) {
 
 let ans = maxSumTriplet(7, [3, 7, 4, 2, 5, 7, 5]);
 console.log(ans);
+
+//EXPLANATION
+//logic is to 
+    //1. loop through all mid values
+    //2. find the max elemnt among the left half
+    //3. find the max element among the right half
+    //4. find their sum and stroe it as the ans, IF it is larger than the prev sum 
+//So logic is to have 3 loops, and then the comparison to store the answer
+
+//loop1
+    //loop2
+    //loop3
+    //comparison to store ans
+
+//initialise left =0, mid=1, right=2
+//initialise sum=0
+// loop1 : from 1 to nums.length for mid value
+    //loop2: from 1 to mid-1 for finding max among left values
+    //loop3: from mid+1 to nums.length for finding max among right values
+    // if condn to check if left+mid+right > sum
+        // if yes ans= left+mid+right
+//return ans
+

@@ -1,8 +1,7 @@
 ## Topics<a id="top"></a>
 
 1. [Strings](#Strings)
-2. [Space Complexity](#space)
-3. [Debugging](#debugging)
+2. [Two Pointer](#two)
 
 ## 1. Strings <a id="Strings"></a>
 

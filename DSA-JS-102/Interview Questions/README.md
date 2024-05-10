@@ -154,7 +154,7 @@
    > Qn. Discuss variants or extensions of the two-pointer technique, such as the sliding window technique, and how they can be applied in different problem scenarios.
 - The two-pointer technique can be expanded to more sophisticated techniques such as sliding windows and dynamic programming.
 
-11. **What are teh types of Two-Pointer Techniques?**
+11. **What are the types of Two-Pointer Techniques?**
 
 - Collision — One array, move from two sides to the middle / towards each other
   → [Two Sum problem](https://leetcode.com/problems/two-sum/)
@@ -172,19 +172,34 @@
 
 1. **What is a Prefix Sum Array?**
 
-   - Explain the concept of a prefix sum array and how it is used in problem-solving.
+   > Qn. Explain the concept of a prefix sum array and how it is used in problem-solving.
+- Given an array arr[] of size n, its prefix sum array **is another array** prefixSum[] **of the same size, such that the value of prefixSum[i] is arr[0] + arr[1] + arr[2] … arr[i].**
+- Example:
+  - Input : arr[] = {10, 20, 10, 5, 15}
+  - Output : prefixSum[] = {10, 30, 40, 45, 60}
 
-2. **How is a Prefix Sum Array Calculated?**
+2. **How is a Prefix Sum Calculated?**
 
-   - Describe the process of calculating a prefix sum array from an input array of numbers.
+   > Qn. Describe the process of calculating a prefix sum array from an input array of numbers.
+- To Calculate prefix summ of an array, 
+   - Set the first element of the prefixSum[] as the same as the first element of the input array. 
+   - Iterate through the input array starting from the second element. 
+   - For each element, **calculate the prefix sum by adding the current element with the prefix sum value of the previous index.**
 
 3. **What are the Advantages of Using a Prefix Sum Array?**
 
-   - Discuss the advantages of using a prefix sum array over brute-force approaches in certain problem scenarios.
+   > Qn. Discuss the advantages of using a prefix sum array over brute-force approaches in certain problem scenarios.
+- Prefix Sum array is used **to respond to range-sum-queries, range-xor-queries**, etc.
+- used to **locate subarrays having the highest sum**.
+- used to **locate the subarray whose total is closest to a given value.**
+- used to **locate subarrays of two arrays that are the same length and sum**.
+- **Find sum of all elements in a given range.**
 
-4. **Can you Explain the Usefulness of Prefix Sum Array in Range Queries?**
+4. **Can you Explain the Usefulness of Prefix Sum Array in Range Sum Queries?**
 
-   - Discuss how prefix sum arrays are used to efficiently answer range query questions, such as finding the sum of elements in a given range.
+   > Qn. Discuss how prefix sum arrays are used to efficiently answer **range query questions, such as finding the sum of elements in a given range.**
+- **To find the sum of elements within a given range** **[start, end]**, simply **subtract the prefix sum at index of start - 1** (if start > 0) **from the prefix sum at index end**.
+- This gives the sum of elements within the range [start, end] because the prefix sum at index end already includes the sum of elements up to index end.
 
 5. **What are the Time and Space Complexity of a Prefix Sum Array?**
 

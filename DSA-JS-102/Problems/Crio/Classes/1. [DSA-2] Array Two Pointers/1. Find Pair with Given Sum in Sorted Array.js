@@ -1,3 +1,6 @@
+// EASY
+//Two Sum Problem
+
 // Problem Description
 // Given a sorted array of integers and a target, find if there’s a pair of elements that add up to the target. Return true if such a pair can be found, and false otherwise.
 
@@ -24,17 +27,18 @@
 
 // Explanation 1
 // Since 0 and 2 are the indices where the numbers 2 and 5 which add up to 7 are seen
+/*************************************************** */
 
 function twoSumInSortedArray(n, arr, target_sum) {
-    let left =0, right=n-1
+    let left = 0, right = n - 1
 
-    while(left<=right){
-        let sum=arr[left]+arr[right]
-        if(sum===target_sum){
+    while (left <= right) {
+        let sum = arr[left] + arr[right]
+        if (sum === target_sum) {
             return true
-        } else if(sum<target_sum){
-            left ++
-        } else{
+        } else if (sum < target_sum) {
+            left++
+        } else {
             right--
         }
     }
@@ -49,3 +53,20 @@ if (isPresent) {
 else {
     console.log("Not Present")
 }
+
+/************************************** */
+//Explanantion
+// normal two pointer to find 2 elements that add upto a given target
+
+//pseodocode
+// left =0, right=arr.length-1
+// while(left<=right)
+    //calculate sum=arr[left]+arr[right]
+    //if sum===target
+        // return true
+    // else if sum >target
+        // right --
+    // else
+        //left++
+
+//return false
