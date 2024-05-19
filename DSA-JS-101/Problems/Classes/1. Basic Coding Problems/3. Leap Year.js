@@ -25,3 +25,5 @@ if (res)
     console.log("true");
 else
     console.log("false");
+
+    //TC AND OC = 1

@@ -20,7 +20,7 @@
 // 1 <= str.length <= 10^5
 
 
-
+//tc =n,sc=n
 function reverseCharacters(str) {
     let result = ""
     let n = str.length

@@ -15,15 +15,17 @@
 
 
 function reverseresulting(str) {
-    let result = str.split("")
+    let result = str.split("") //tc=n
     let left = 0, right = result.length - 1
-    while (left <= right) {
+    while (left <= right) { //tc=n/2 =n
         [result[left], result[right]] = [result[right], result[left]]
         left++
         right--
     }
-    return result.join("")
+    return result.join("") //tc=n
 }
 
 let ans = reverseresulting("abc");
 console.log(ans);
+
+//tc=n, sc=1

@@ -15,3 +15,6 @@ function naturalSum(n) {
 }
 let res = naturalSum(10);
 console.log(res);
+
+//T.C = O(1)
+//S.C=O(1)

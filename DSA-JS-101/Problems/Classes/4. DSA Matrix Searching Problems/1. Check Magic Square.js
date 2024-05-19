@@ -18,6 +18,8 @@
 // 1 <= n <= 100
 // 1 <= element of matrix <= n*n
 
+//tc=n², sc=1
+// tc can not be imrpoved
 function checkMagicSquare(n, matrix) {
     let referenseSum=0
     for(let i=0; i<n; i++){
@@ -79,3 +81,5 @@ if (result == true) {
 } else {
   console.log("No");
 }
+
+

@@ -29,29 +29,29 @@
 // Since 0 and 2 are the indices where the numbers 2 and 5 which add up to 7 are seen
 /*************************************************** */
 
+//tc=n, sc=1
 function twoSumInSortedArray(n, arr, target_sum) {
-    let left = 0, right = n - 1
+  let left = 0;
+  let right = n - 1;
 
-    while (left <= right) {
-        let sum = arr[left] + arr[right]
-        if (sum === target_sum) {
-            return true
-        } else if (sum < target_sum) {
-            left++
-        } else {
-            right--
-        }
+  while (left <= right) {
+    let sum = arr[left] + arr[right];
+    if (sum === target_sum) {
+      return true;
+    } else if (sum < target_sum) {
+      left++;
+    } else {
+      right--;
     }
-    return false
+  }
+  return false;
 }
-
 
 let isPresent = twoSumInSortedArray(5, [2, 4, 5, 8, 9], 7);
 if (isPresent) {
-    console.log("Present");
-}
-else {
-    console.log("Not Present")
+  console.log("Present");
+} else {
+  console.log("Not Present");
 }
 
 /************************************** */
@@ -61,12 +61,12 @@ else {
 //pseodocode
 // left =0, right=arr.length-1
 // while(left<=right)
-    //calculate sum=arr[left]+arr[right]
-    //if sum===target
-        // return true
-    // else if sum >target
-        // right --
-    // else
-        //left++
+//calculate sum=arr[left]+arr[right]
+//if sum===target
+// return true
+// else if sum >target
+// right --
+// else
+//left++
 
 //return false

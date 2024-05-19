@@ -29,6 +29,8 @@
 // Constraints
 // 1 <= length(S) <= 100000
 
+
+//tc=n, sc=n
 function stringCompression(s) {
     let result = " "
     let count = 1

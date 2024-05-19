@@ -54,3 +54,5 @@ let result = fizzBuzz(15);
 for (const ans of result) {
     console.log(ans);
 }
+
+//TC = N, OC =N

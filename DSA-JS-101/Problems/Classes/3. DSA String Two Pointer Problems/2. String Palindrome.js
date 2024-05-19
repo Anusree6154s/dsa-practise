@@ -42,3 +42,5 @@ function stringPalindrome(str) {
 
 let result = stringPalindrome("madam");
     console.log(result);
+
+    //tc=n , sc=1

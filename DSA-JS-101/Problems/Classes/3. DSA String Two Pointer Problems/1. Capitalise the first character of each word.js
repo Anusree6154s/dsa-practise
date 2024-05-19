@@ -31,3 +31,5 @@ function capitaliseBasic(paragraph) {
 
 let result = capitaliseBasic("the quick Brown fox jumps over The lazy dog.");
   console.log(result.join(""));
+
+  //tc=n, sc=n

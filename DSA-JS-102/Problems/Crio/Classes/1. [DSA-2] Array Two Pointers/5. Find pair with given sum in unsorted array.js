@@ -19,6 +19,7 @@
 // Explanation 1
 // Since 0 and 2 are the indices where the numbers 2 and 5 which add up to 7 are seen
 
+//tc=n, sc=1
 function twoSum(nums, target) {
     let left = 0, right = nums.length - 1
 

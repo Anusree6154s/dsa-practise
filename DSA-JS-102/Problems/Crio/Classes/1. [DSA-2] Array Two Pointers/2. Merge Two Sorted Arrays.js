@@ -30,30 +30,32 @@
 // |nums1[i] | <= 10^9
 // |nums2[i] | <= 10^9
 
+//tc=m+n, sc=m+n
 function mergeSortedArray(m, nums1, n, nums2) {
-    //already sorted arrays
+  //already sorted arrays
 
-    let p1 = 0, p2 = 0, p3 = 0
-    let result = []
+  let p1 = 0,
+    p2 = 0,
+    p3 = 0;
+  let result = [];
 
-    while (p3 < (m+n)) {
-        let num1=(nums1[p1]==0 || nums1[p1])? nums1[p1]: Infinity
-        let num2=(nums2[p2]==0 || nums2[p2])? nums2[p2]: Infinity
-        if (num1<num2){
-            result.push(num1)
-            p1++
-        } else if(num1>num2){
-            result.push(num2)
-            p2++
-        } else if(num1===num2 && num1!==Infinity && num2!==Infinity){
-            result.push(num1)
-            p1++
-        }
-        p3++
+  while (p3 < m + n) {
+    let num1 = nums1[p1] == 0 || nums1[p1] ? nums1[p1] : Infinity;
+    let num2 = nums2[p2] == 0 || nums2[p2] ? nums2[p2] : Infinity;
+    if (num1 < num2) {
+      result.push(num1);
+      p1++;
+    } else if (num1 > num2) {
+      result.push(num2);
+      p2++;
+    } else if (num1 === num2 && num1 !== Infinity && num2 !== Infinity) {
+      result.push(num1);
+      p1++;
     }
+    p3++;
+  }
 
-    return result
-
+  return result;
 }
 
 let nums = mergeSortedArray(3, [1, 2, 3], 3, [2, 5, 6]);
@@ -66,4 +68,3 @@ console.log(...nums);
 // similarly for arr2,  arr2[i] till p2<arr2.length, later as Infinity
 
 // in case arr1[i]===arr2[i], store any one (and arr1[i] and arr2[i] !== Infinity)
-

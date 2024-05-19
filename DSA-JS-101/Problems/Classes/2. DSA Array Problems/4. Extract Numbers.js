@@ -35,3 +35,5 @@ function extractNumbers(N, arr) {
 
 let ans = extractNumbers(8, ["a", 3, "long", 17, "crio", "dsa", 100, 20]);
 console.log(ans.join(" "))
+
+// tc =n, sc=n

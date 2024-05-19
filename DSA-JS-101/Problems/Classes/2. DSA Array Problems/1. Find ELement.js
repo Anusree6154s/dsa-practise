@@ -27,3 +27,5 @@ function findElement(n, arr, x) {
 }
 let result = findElement(5, [1, 3, 4, 2, 1], 1);
 console.log(result);
+
+//TC=N, OC=1

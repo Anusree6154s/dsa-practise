@@ -43,3 +43,5 @@ let result=[]
 
 let ans = findLocalPeak(7, [4, 2, 3, 1, 5, 6, 4]);
 console.log(ans.join(" "))
+
+// tc=n, sc=n

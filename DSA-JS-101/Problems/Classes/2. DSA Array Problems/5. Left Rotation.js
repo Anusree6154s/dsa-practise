@@ -20,3 +20,5 @@ function leftRotation(arr) {
 
 const res = leftRotation([1, 2, 3, 4, 5]);
 console.log(res.join(' '));
+
+//tc=n, sc=1

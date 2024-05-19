@@ -16,6 +16,8 @@
 // Explanation
 // The robot moves up once, and then down once. All moves have the same magnitude, so it ended up at the origin where it started. Therefore, we return true.
 
+
+//tc = n, sc=1
 function robotReturnToOrigin(moves) {
     let x = 0, y = 0
     for (let i = 0; i < moves.length; i++) {

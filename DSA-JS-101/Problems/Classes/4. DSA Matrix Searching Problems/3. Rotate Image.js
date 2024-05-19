@@ -40,6 +40,9 @@
 // Constraints
 // 1 <= n <= 100
 
+
+//tc =n^2, tc=1
+//can be improved, but i dont uncderstand, and by textbook it is n^2
 function rotateImage(n, matrix) {
     function swap(matrix, r1, c1, r2, c2) {
         [matrix[r1][c1], matrix[r2][c2]] = [matrix[r2][c2], matrix[r1][c1]]
@@ -47,8 +50,8 @@ function rotateImage(n, matrix) {
 
 
     function mirrorHorizontal() {
-        for (let i = 0; i < Math.ceil(n / 2); i++) {
-            for (let j = 0; j < n; j++) {
+        for (let i = 0; i < Math.ceil(n / 2); i++) { 
+            for (let j = 0; j < n; j++) { 
                 swap(matrix, i, j, n - i - 1, j)
             }
         }

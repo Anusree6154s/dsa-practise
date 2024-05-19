@@ -33,14 +33,17 @@
 
 // There is at least one word in s.
 
+
+//tc= n, sc=n
+
 function reverseWordsInAString(s) {
     let ans = ""
     let result = []
     let j = s.length - 1
-    for (let i = s.length - 1; i >= -1; i--) {
+    for (let i = s.length - 1; i >= -1; i--) { //tc= n*k, butk<<< so tc=n
         if (s[i] == " " || i === -1) {
             j = i + 1
-            while (s[j] !== " " && j < s.length) {
+            while (s[j] !== " " && j < s.length) { 
                 ans = ans + s[j]
                 j++
             }
@@ -51,7 +54,7 @@ function reverseWordsInAString(s) {
 
         }
     }
-    return result.join(" ")
+    return result.join(" ") //tc=n
 }
 
 var s = 'hello world'

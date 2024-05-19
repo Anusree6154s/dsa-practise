@@ -18,6 +18,8 @@
 
 // Constraints
 
+
+//tc = 2*n = n, sc = n
 function nthFibonacci(n) {
     if (n == 0) {
         return 0

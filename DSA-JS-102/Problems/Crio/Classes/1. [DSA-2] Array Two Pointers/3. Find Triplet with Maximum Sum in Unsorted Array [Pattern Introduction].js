@@ -11,6 +11,7 @@
 // Sample Output 1
 // 16
 
+//tc=n, sc=1
 function maxSumTriplet(n, nums) {
     let left=0, right=2
     let mid = 1

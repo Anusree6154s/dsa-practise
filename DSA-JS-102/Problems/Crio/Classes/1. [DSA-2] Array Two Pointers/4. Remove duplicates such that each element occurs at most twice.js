@@ -13,6 +13,7 @@
 
 
 //ans1
+//tc=n, sc=1
 function removeDuplicatesFromSortedArrayI(n, arr) {
     let left = 0, right = 1, count = 0
     while (left < arr.length && right < arr.length) {

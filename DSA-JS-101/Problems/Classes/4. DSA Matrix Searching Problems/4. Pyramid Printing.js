@@ -25,7 +25,7 @@
 // Constraints
 // 0 < n < 100
 
-
+//tc=n^2, sc=n^2 because result has n*n time of elements
 function patternPrintingI(n) {
     let result = []
     let ans = ""

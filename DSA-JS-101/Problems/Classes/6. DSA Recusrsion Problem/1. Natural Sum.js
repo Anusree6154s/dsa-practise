@@ -16,6 +16,8 @@
 // Explanation
 // 1+2+3+4+5+6+7+8+9+10 = 55
 
+
+//tc= n, sc=n
 function naturalSum(N) {
     if (N === 0) {
         return 0

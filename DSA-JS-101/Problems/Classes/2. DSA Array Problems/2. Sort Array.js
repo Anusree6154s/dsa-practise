@@ -18,3 +18,7 @@ function sortArray(arr) {
 
 let result = sortArray(['abc', 'abd', 'ab', 'a']);
 console.log(...result);
+
+//TC=nlogn, SC=1
+
+// sort()-> tc=nlogn 

@@ -18,8 +18,26 @@
 // Explanation 1
 // The lines of length 8 and 7 form a container that can hold 7*7=49 units of water. Here, the first 7 is the minimum of the two line heights and the second 7 is the number of units they are apart. This is the largest container that can be formed with the given input.
 
+//tc=n, sc=1
 function maxArea(height) {
-    
+    let max = 0
+    let left = 0
+    let right = height.length - 1
+    while (left < right) {
+        let minHeight = Math.min(height[left], height[right])
+        let area = minHeight * (right - left)
+        max = Math.max(max, area)
+        if (height[left] < height[right]) {
+
+            left++
+        } else {
+
+            right--
+        }
+    }
+
+    return max
+
 }
 
 let result = maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]);

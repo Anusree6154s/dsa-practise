@@ -32,7 +32,9 @@
 // Constraints
 // 1 <= N <= 10^3 1 <= A[i] <= 10^9
 
+//tc=log n, sc=1 
 function searchTarget(N, A, X) {
+    //binary search
     let left = 0, right = N - 1
     while (left <= right) {
         let mid = Math.floor((left + right) / 2)
