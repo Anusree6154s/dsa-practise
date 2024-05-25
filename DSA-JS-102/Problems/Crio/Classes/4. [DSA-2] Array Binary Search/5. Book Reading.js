@@ -26,11 +26,48 @@
 // Explanation
 // The minimum books-per-hour reading speed is 4 such that ujjwal can read all the books within h hours.
 
+//tc=mlog n, sc=1
+//m=for loop
+//n largest pile in array
 function bookReading(n, h, a) {
-    
- }
+    //min hours = a.length 
+    //we make a new array arr and redistribute contents of a, so that the arr.length<=8
 
-let [n, h] = [4,]
+    //contents of each arr[i] = Math.ceil(a[i]/speed) 
+    //-> because arr[i]=time and speed=books/t, 
+    //-.transposing we get time=books/speed
+    //-> arr[i]=a[i]/speed
+
+
+    // we will find for speed between 1 to max(...a)
+    //finding the max no.of books per pile that finishes in <=h hours
+
+    let left = 1
+    let right = Math.max(...a)
+    let mid = h //starting mid from h optimises the code a lot
+    while (left <= right) {
+        let totalHours = 0
+        for (let i = 0; i < a.length; i++) {
+            let pileOfBooks = a[i]
+            let speed = mid
+            let hours = Math.ceil(pileOfBooks / speed)
+            totalHours = totalHours + hours
+        }
+
+        if (totalHours <= h) {
+            right = mid - 1 //to find a smaller pile, aka, longer time-> time tending to h
+
+        } else {
+            left = mid + 1 //find a larger pile, aka, time<h
+        }
+        mid = Math.floor((right + left) / 2)
+    }
+    return left
+}
+
+
+
+let [n, h] = [4, 8]
 let a = [3, 6, 7, 11]
 
 console.log(bookReading(n, h, a));
