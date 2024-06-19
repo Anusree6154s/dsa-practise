@@ -69,22 +69,78 @@
 
 // Format of each line (space separated): Parent_node Left_child_node Right_child_node
 
-/*
-Definition for TreeNode
+
+// Definition for TreeNode
 class TreeNode {
     constructor(val) {
         this.val = val;
         this.left = null;
         this.right = null;
-        this.next =null;
+        this.next = null;
         this.parent = null;
     }
 }
-*/
+
 
 /**
  * @param {TreeNode} root
  * @return {Boolean}
  */
 
-function checkBalanced(root) {}
+function checkBalanced(root) {
+    //so we are going to recursively find the height of each level
+
+    //in helper funtion:
+    //edgecase: if not root(no child) return height as -1 (so that when we add height of next level, starting  height will be 0)
+    //for that we will go deep to the bottom level in botg right and left
+    //while coming back up, we will return the max between them +1
+
+    //if height goes greater than 1 iat any level we will return -Infinity
+    // if any right or left also returns -Infinity we will return -Infinity 
+
+    // in original function we check if returned height is -Infinity or not 
+
+    function checkHeight(root) {
+        if (!root) return -1 //height of null children is -1
+
+        let leftHeight = checkHeight(root.left)
+        let rightHeight = checkHeight(root.right)
+
+        let childrenHeight = Math.abs(leftHeight - rightHeight) //currHeight shouldn't go above 1 or -1 
+        console.log(childrenHeight, root.val)
+        if (leftHeight == -Infinity || rightHeight == -Infinity || childrenHeight > 1) {
+            return -Infinity
+        }
+
+        let currHeight = Math.max(leftHeight, rightHeight)
+        return currHeight + 1
+    }
+
+    let height = checkHeight(root)
+    return height !== -Infinity
+
+}
+
+
+
+//create ListNode
+function createListNode() {
+
+    //10 15 25 12 40 16 20
+    let head = new TreeNode(10)
+    head.left = new TreeNode(40)
+    head.right = new TreeNode(25)
+    head.left.left = new TreeNode(16)
+    head.left.left.right = new TreeNode(20)
+    head.right.left = new TreeNode(15)
+    head.right.right = new TreeNode(12)
+
+    return head
+}
+
+
+//test code
+let head = createListNode()
+let ans = checkBalanced(head)
+console.log(ans)
+

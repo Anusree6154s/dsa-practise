@@ -30,7 +30,20 @@
 // Explanation 1
 // In the array, the next larger element to 1 is 3 , 3 is 4 , 2 is 4 and for 4, there is no such greater element, hence -1.
 
-function nextLargerElement(n, arr) { }
+//tc=On, sc=On
+function nextLargerElement(n, arr) {
+    let ans = new Array(n).fill(-1)
+
+    let stack = []
+    for (let i = 0; i < arr.length - 1; i++) {
+        stack.push(i)
+        while (stack.length !== 0 && arr[stack[stack.length - 1]] < arr[i + 1]) {
+            ans[stack.pop()] = arr[i + 1]
+        }
+    }
+
+    return ans
+}
 
 let n = 4
 let arr = [1, 3, 2, 4]

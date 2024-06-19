@@ -51,4 +51,66 @@
 // Explanation 2
 // The 4th node from the end is 1, removing which, gives us 3 3 2 4
 
-function deleteKthToLast(head, k) {}
+//tc=O(N), sc=O(1)
+function deleteKthToLast(head, k) {
+    //to find kth element from end, use 2 pointers:
+    //suppose the starting position of 1st pointer is on 4th node and 2nd pointer on 1st node
+    //the distance between them is of 4 nodes
+    // so if moved together, when 1st pointer is at last node, 2nd pointer is at the 4th node from end
+
+    // to remove any element use 2 pointers: prev and current
+
+    // so in total we use 3 pointers
+
+    let p1 = head
+    let p2 = head
+    let prev = null
+
+    //set starting position of 1st pointer
+    for (let i = 1; i < k; i++) {
+        p1 = p1.next
+    }
+
+    //move both pointers together to find kth node from end
+    while (p1.next !== null) {
+        p1 = p1.next
+        prev = p2
+        p2 = p2.next
+    }
+
+    //now remove
+    prev.next = p2.next
+
+    return head
+}
+
+
+//create ListNode
+function createListNode() {
+    class ListNode {
+        constructor(val) {
+            this.val = val
+            this.next = null
+        }
+    }
+
+    let input = '1 5 2 4 3'
+    let arr = input.split(' ').map(Number)
+    let head = new ListNode(arr[0])
+    let current = head
+    for (let i = 1; i < arr.length; i++) {
+        current.next = new ListNode(arr[i])
+        current = current.next
+    }
+
+    return head
+}
+
+
+//test code - Singly LinkedList
+let head = createListNode()
+let ans = deleteKthToLast(head, 2)
+while (ans != null) {
+    console.log(ans.val)
+    ans = ans.next
+}

@@ -38,4 +38,26 @@
 
 // S[i] >= 0, where S[i] is an operand in the expression
 
-function postfixExpression(exp) {}
+//tc=On, sc=On
+function postfixExpression(exp) {
+    let stack = []
+
+    for (let i = 0; i < exp.length; i++) {
+        if (exp[i] >= '0' && exp[i] <= '9') {
+            stack.push(Number(exp[i]))
+        } else if (exp[i] !== ' ') {
+            let a = stack.pop()
+            let b = stack.pop()
+            let ans = eval(b + exp[i] + a)
+            stack.push(ans)
+        }
+    }
+
+    return stack.pop()
+}
+
+let result = postfixExpression('2 3 1 * + 9 -')
+
+console.log(result)
+
+console.log(eval('5-9'))

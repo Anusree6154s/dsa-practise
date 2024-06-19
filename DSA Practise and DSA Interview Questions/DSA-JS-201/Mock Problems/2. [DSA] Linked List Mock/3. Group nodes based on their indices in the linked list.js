@@ -29,4 +29,52 @@
 
 // -10^9 <= Value of node <= 10^9
 
-function oddEvenLinkedList(head) {}
+class ListNode {
+    constructor(val) {
+        this.val = val
+        this.next = null
+    }
+}
+
+function oddEvenLinkedList(head) {
+    //using 2 new list node to group od and even indices
+    //using a flag to track alternate indicces
+    //indices sstart from 1
+
+    let even = false
+    let evenList = new ListNode()
+    let oddList = new ListNode()
+    let evenHead = evenList
+    let oddHead = oddList
+
+    while (head) {
+        if (even) {
+            evenList.next = head
+            evenList = evenList.next
+        } else {
+            oddList.next = head
+            oddList = oddList.next
+        }
+        head = head.next
+        even = !even
+    }
+    oddList.next = evenHead.next
+    evenList.next = null
+    return oddHead.next
+}
+
+
+
+let head = new ListNode(1)
+head.next = new ListNode(5)
+head.next.next = new ListNode(3)
+head.next.next.next = new ListNode(4)
+head.next.next.next.next = new ListNode(8)
+
+//test code
+let ans = oddEvenLinkedList(head)
+// console.log(ans)
+while (ans != null) {
+    console.log(ans.val)
+    ans = ans.next
+}

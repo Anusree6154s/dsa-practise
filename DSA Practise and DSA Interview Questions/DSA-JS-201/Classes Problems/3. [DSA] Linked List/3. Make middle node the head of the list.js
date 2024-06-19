@@ -38,4 +38,53 @@
 // Explanation 2
 // The middle node here is [3]. Moving that to the head of the list gives us the output shown.
 
-function moveMiddleToHead(head) {}
+//tc=O(N), sc=O(1) -> no new ListNode created
+function moveMiddleToHead(head) {
+    //to find middle: using 2  pointers of diff speed to find the middle pointer
+    // to bring middle to front: use 3 pointers - prev(for the one before middle), middle, current
+
+    let current = head
+    let middle = head
+    let prev = null
+    while (current !== null) {
+        current = current.next.next
+        prev = middle
+        middle = middle.next
+    }
+
+    prev.next = middle.next
+    middle.next = head
+
+    return middle
+}
+
+
+//create ListNode
+function createListNode() {
+    class ListNode {
+        constructor(val) {
+            this.val = val
+            this.next = null
+        }
+    }
+
+    let input = '5 2 3 4 6 7'
+    let arr = input.split(' ').map(Number)
+    let head = new ListNode(arr[0])
+    let current = head
+    for (let i = 1; i < arr.length; i++) {
+        current.next = new ListNode(arr[i])
+        current = current.next
+    }
+
+    return head
+}
+
+
+//test code - Singly LinkedList
+let head = createListNode()
+let ans = moveMiddleToHead(head)
+while (ans != null) {
+    console.log(ans.val)
+    ans = ans.next
+}

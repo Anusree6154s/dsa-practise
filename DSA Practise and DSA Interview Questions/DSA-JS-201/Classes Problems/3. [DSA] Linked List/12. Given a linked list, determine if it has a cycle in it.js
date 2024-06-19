@@ -35,5 +35,66 @@
 // image
 
 // There is a cycle in the linked list, where tail connects to the second node.
+// Sample Input 2
+// 1
+// -1
 
-function linkedListCycle(head) {}
+// Sample Output 2
+// true
+
+class ListNode {
+    constructor(val) {
+        this.val = val
+        this.next = null
+    }
+}
+
+//tc=O(N), sc=O(1)
+function linkedListCycle(head) {
+    // Floyd's Cycle Detection Algorithm  (Tortoise and Hare algorithm)
+    //well run 2 pointers: slow and fast
+    //is there is a cycle, slow and fast will meet. and return true
+
+    //edge case-> if fast.next doesnt exist, return false
+    //edge case -> if head or head.next dont exist
+
+
+    
+    if (!head || !head.next) {
+        return false;
+  }
+    let slow = head
+    let fast = head.next //we start from head.next instead of head so that we dont miss a cycle if it begins immdiately after head (head pointing to head -> so head=head.next)
+
+    while (slow !== fast) {
+        if(!fast || !fast.next) return false
+        slow = slow.next
+        fast = fast.next.next
+    }
+
+    return true
+}
+
+//create ListNode
+function createListNode() {
+    class ListNode {
+        constructor(val) {
+            this.val = val
+            this.next = null
+        }
+    }
+    // 3 2 0 -4
+    let head = new ListNode(3)
+    head.next = new ListNode(2)
+    let pointer = head.next
+    head.next.next = new ListNode(0)
+    head.next.next.next = new ListNode(-4)
+    head.next.next.next.next = pointer
+    return head
+}
+
+
+//test code - Singly LinkedList
+let head = createListNode()
+let ans = linkedListCycle(head)
+console.log(ans)

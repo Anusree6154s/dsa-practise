@@ -66,5 +66,50 @@ class TreeNode {
 }
 */
 
+class TreeNode {
+    constructor(val) {
+        this.val = val
+        this.right = null
+        this.left = null
+    }
+}
 
-function inorderTraversal(root) {}
+
+function inorderTraversal(root) {
+    //aproach:
+    //edgecase: if no root, return null
+    //1. go to the leftest 
+    //2. while coming back up, record self
+    // 3. go to the right child to repaet 1 and 2
+    let ans = []
+    function inorder(root) {
+        if (!root) return
+        inorder(root.left)
+        ans.push(root.val)
+        inorder(root.right)
+    }
+    inorder(root)
+    return ans
+}
+
+
+//create ListNode - bst
+function createListNode() {
+
+    //40 20 60 10 30 50 70
+    let head = new TreeNode(40)
+    head.left = new TreeNode(20)
+    head.right = new TreeNode(60)
+    head.left.left = new TreeNode(10)
+    head.left.right = new TreeNode(30)
+    let g = head.left.right
+    head.right.left = new TreeNode(50)
+    head.right.right = new TreeNode(70)
+
+    return { head, g }
+}
+
+//test code
+let { head, g } = createListNode()
+let ans = inorderTraversal(head)
+console.log(ans)

@@ -51,6 +51,7 @@
 const stack = new Stack()
 
 function push(x) {
+    console.log(x)
     stack.push(x)
 }
 
@@ -69,38 +70,38 @@ function findMin() {
     return stack.find()
 }
 
+//sc=On, tc=O(1)
 function Stack() {
     let stack1 = []
     let stack2 = []
-    this.push = (item) => {
+
+    this.push = function (item) {
         stack1.push(item)
-        if (stack1.length === 1) {
-            stack2.push(item)
-        } else if (item < stack2[stack2.length - 1]) {
+
+        if (stack2.length !== 0 && item < stack2[stack2.length - 1] || stack2.length == 0) {
             stack2.push(item)
         }
     }
 
-    this.pop = () => {
-        let poppedItem = stack1.pop()
-        if (poppedItem === stack2[stack2.length - 1]) {
+    this.pop = function () {
+        let item = stack1.pop()
+
+        if (stack2[stack2.length - 1] == item) {
             stack2.pop()
         }
     }
 
-    this.find = () => {
-        if (stack2.length > 0) {
-            return stack2[stack2.length - 1]
-        } else {
-            return -1
-        }
+
+    this.find = function () {
+        return stack2.pop()
     }
 }
 
+
 function main() {
-    let queries = parseInt(readLine(), 10);
-    for (let q = 0; q < queries; q++) {
-        let query = readIntArr();
+    let queries = [[1, 2], [1, 3], [1, 1], [3], [2], [3]]
+    for (let q = 0; q < queries.length; q++) {
+        let query = queries[q]
         if (query[0] == 1) {
             push(query[1]);
         }
@@ -113,3 +114,5 @@ function main() {
         }
     }
 }
+
+main()

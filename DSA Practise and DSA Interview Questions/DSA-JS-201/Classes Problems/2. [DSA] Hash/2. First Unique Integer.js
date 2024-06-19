@@ -29,9 +29,29 @@
 // Explanation 1
 // Among the superstars who attended, 6 came with a body double whereas 9 and 7 came without any body doubles. The first superstar who arrived without a body double is 9.
 
-function firstUniqueInteger(n, arr) {}
-let n = parseInt(readLine(), 10);
-let arr = readIntArr();
+//tc=O(n), sc=O(1)
+function firstUniqueInteger(n, arr) {
+    //will run 2 loops
+    // one to add the count
+    //second to return the first element with count 1
+    let map = new Map()
+
+    for (let item of arr) {
+        if (map.has(item)) {
+            let count = map.get(item)
+            map.set(item, ++count)
+        } else {
+            map.set(item, 1)
+        }
+    }
+
+    for(let [key, value] of map){
+        // this will return the first key with value 1
+        if(value===1) return key
+    }
+}
+let n = 4
+let arr = [9, 6, 7, 6]
 
 let result = firstUniqueInteger(n, arr);
 console.log(result);

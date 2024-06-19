@@ -62,5 +62,93 @@ class TreeNode {
 }
 */
 
+class TreeNode {
+    constructor(val) {
+        this.val = val
+        this.right = null
+        this.left = null
+    }
+}
 
-function rightViewBinaryTree(root) {}
+function rightViewBinaryTree(root) {
+    //approach: at each level down, record right first, else left. return nothing
+
+    //go down levels on both sides(but right first)
+    //record maxLevel depth in each round
+    //if current level is lower than max level uptil now, update the val
+    //this considers that if once right val is stored at a prticular level, the left value will not be stored on the same level
+    // if (!root) return root
+
+    // let ans = []
+    // let maxLevel = 0
+    // let level = 0
+
+    // function goDownRightFirst(root, ans, level) {
+    //     if (!root) return
+
+    //     //if level > maxLevel, store the root.val
+    //     if (level > maxLevel) {
+    //         maxLevel = level
+    //         ans.push(root.val)
+    //     }
+
+    //     //go deepre in right first then left
+    //     goDownRightFirst(root.right, ans, level + 1)
+    //     goDownRightFirst(root.right, ans, level + 1)
+
+    //     return
+
+    // }
+
+    // goDownRightFirst(root, ans, level + 1)
+    // return ans
+
+    //ALTERNATE APPROACH
+    //using map
+    if (!root) return root
+
+    let map = new Map()
+    let level = 0
+
+    function goDownRightFirst(root, map, level) {
+        if (!root) return
+
+        //for one level record only the first and one root.val
+        if (!map.has(level)) {
+            map.set(level, root.val)
+        }
+
+        //go deepre in right first then left
+        goDownRightFirst(root.right, map, level + 1)
+        goDownRightFirst(root.right, map, level + 1)
+
+        return
+
+    }
+
+    goDownRightFirst(root, map, level)
+    return Array.from(map.values())
+
+
+}
+
+
+//create ListNode
+function createListNode() {
+
+    // 10 40 25 16 15 12
+    let head = new TreeNode(10)
+    head.left = new TreeNode(40)
+    head.right = new TreeNode(25)
+    head.left.left = new TreeNode(16)
+    head.right.left = new TreeNode(15)
+    head.right.right = new TreeNode(12)
+
+    return head
+}
+
+
+//test code
+let root = createListNode()
+let ans = rightViewBinaryTree(root)
+console.log(ans)

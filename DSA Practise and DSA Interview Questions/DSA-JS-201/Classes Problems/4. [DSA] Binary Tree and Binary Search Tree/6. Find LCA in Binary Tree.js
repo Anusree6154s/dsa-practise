@@ -60,4 +60,60 @@
 
 // Format of each line (space separated): Parent_node Left_child_node Right_child_node
 
-function commonAncestor(root, p, q) {}
+class TreeNode {
+    constructor(val) {
+        this.val = val
+        this.right = null
+        this.left = null
+    }
+}
+
+function commonAncestor(root, p, q) {
+    //approach: to find 2 variables left and right only if p and q is found
+    // and keep returning p and q, this hteri common parent arrives(only happens when left and right both variables are filled for any parent)
+    //this means we wouldnt return left or right values, unless p and q is found. else return null
+
+    // to get right and left values in lower levels or to check if the head itself is the p or q 
+    if (!root || root === p || root === q) return root;
+
+    // if p or q is not found, go down levels on both sides to find p and q
+    let left = commonAncestor(root.left, p, q);
+    let right = commonAncestor(root.right, p, q);
+
+    //after coming back, if we have left and right, the parent is the lca
+    if (left && right) {
+        return root;
+    }
+
+    //if left or right is not there, then either of them could be the lca
+    return left ? left : right;
+
+
+    //     If root is null, or either p or q is found at root, return root.
+    // Recursively search for p and q in the left and right subtrees.
+    // If both left and right are non-null (i.e., one is found in each subtree), then root is the LCA.
+    // Otherwise, return the non-null subtree (either left or right).
+}
+
+//create ListNode
+function createListNode() {
+
+    //10 15 25 12 40 16 20
+    let head = new TreeNode(10)
+    let p = head
+    head.left = new TreeNode(40)
+    head.right = new TreeNode(25)
+    head.left.left = new TreeNode(16)
+    let q = head.left.left
+    head.left.left.right = new TreeNode(20)
+    head.right.left = new TreeNode(15)
+    head.right.right = new TreeNode(12)
+
+    return { head, p, q }
+}
+
+
+//test code
+let { head, p, q } = createListNode()
+let ans = commonAncestor(head, p, q)
+console.log(ans.val)

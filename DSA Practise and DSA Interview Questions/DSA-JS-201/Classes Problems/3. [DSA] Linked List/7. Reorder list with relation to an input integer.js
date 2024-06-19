@@ -49,4 +49,71 @@
 // Explanation 2
 // All nodes with values less than 2 come before all nodes with values greater than 2.
 
-function partition(head, x) {}
+class ListNode {
+    constructor(val) {
+        this.val = val
+        this.next = null
+    }
+}
+
+//tc=O(N), sc=O(1)
+function partition(head, x) {
+    // use three extra dummy ListNodes and make it simpler 
+    //merging is simpler with dummy ListNodes
+
+    let lesser = new ListNode()
+    let equal = new ListNode()
+    let greater = new ListNode()
+
+    let lesserHead = lesser
+    let equalHead = equal
+    let greaterHead = greater
+
+    let curr = head
+    while (curr !== null) {
+        if (curr.val < x) {
+            lesser.next = curr
+            lesser = lesser.next
+        } else if (curr.val > x) {
+            greater.next = curr
+            greater = greater.next
+        } else {
+            equal.next = curr
+            equal = equal.next
+        }
+        curr = curr.next
+    }
+
+    lesser.next = equalHead.next
+    equal.next = greaterHead.next
+    greater.next = null //required to cut any trailing nodes to avoid circular LL
+
+    return lesserHead.next
+
+}
+
+
+//create ListNode
+function createListNode() {
+
+
+    let input = '3 5 8 5 10 2 1'
+    let arr = input.split(' ').map(Number)
+    let head = new ListNode(arr[0])
+    let current = head
+    for (let i = 1; i < arr.length; i++) {
+        current.next = new ListNode(arr[i])
+        current = current.next
+    }
+
+    return head
+}
+
+
+//test code - Singly LinkedList
+let head = createListNode()
+let ans = partition(head, 5)
+while (ans != null) {
+    console.log(ans.val)
+    ans = ans.next
+}

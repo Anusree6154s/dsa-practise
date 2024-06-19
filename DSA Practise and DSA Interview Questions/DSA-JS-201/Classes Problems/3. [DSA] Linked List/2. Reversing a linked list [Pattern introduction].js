@@ -32,4 +32,51 @@
 
 // -10^9 <= A[i] <= 10^9
 
-function reverseLinkedList(head) {}
+//tc=O(N), sc=O(1)
+function reverseLinkedList(head) {
+    //for reversing:
+    //1. first define- prev, current, next
+    //2. flip current.next. update prev and next
+    //next pointer only acts as a pointer to not lose the trailing ListNode
+
+    let prev = null
+    let current = head
+    let next = head.next
+    while (current !== null) {
+        current.next = prev
+        prev = current
+        current = next
+        if (next) next = next.next
+    }
+
+    return prev
+}
+
+//create ListNode
+function createListNode() {
+    class ListNode {
+        constructor(val) {
+            this.val = val
+            this.next = null
+        }
+    }
+
+    let arr = [1, 2, 3, 4, 5]
+    let head = new ListNode(arr[0])
+    let current = head
+    for (let i = 1; i < arr.length; i++) {
+        current.next = new ListNode(arr[i])
+        current = current.next
+    }
+
+    return head
+}
+
+
+//test code
+let head = createListNode()
+let ans = reverseLinkedList(head)
+while (ans != null) {
+    console.log(ans.val)
+    ans = ans.next
+}

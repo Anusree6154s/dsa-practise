@@ -49,4 +49,57 @@
 
 // The root node's value is 2 which is greater than 1 and lesser than 3. Therefore it is a valid BST.
 
-function validateBinarySearchTree(root, min = null, max = null) {}
+
+class TreeNode {
+    constructor(val) {
+        this.val = val
+        this.right = null
+        this.left = null
+    }
+}
+
+
+function validateBinarySearchTree(root, min = null, max = null) {
+    //approach: range based search
+    //we check:
+    //1. for root.left, if range is between null and curr root
+    //2. for root.right, if range is between parent of curr root(aka prev root) and curr root
+
+    //it is because in BST:
+    //1. left child is always lesser than all the roots above
+    //2. right child is greater than direct parent but smaller than paretn above that parent
+    //so if these rules are nto followed, we return false. else if we reach null then return true
+
+    // Base case: an empty tree is a valid BST
+    if (root == null) return true;
+
+    // If current node's value is not within the valid range, it's not a BST
+    // in case of left children we never have to compare min, because min is always == null
+    if (min && root.val <= min) return false;
+    if (max && root.val >= max) return false;
+
+    // Recursively validate the left and right subtrees with updated ranges
+    return validateBinarySearchTree(root.left, min, root.val) &&
+        validateBinarySearchTree(root.right, root.val, max);
+}
+
+//create ListNode - bst
+function createListNode() {
+
+    //40 20 60 10 30 50 70
+    let head = new TreeNode(40)
+    head.left = new TreeNode(20)
+    head.right = new TreeNode(60)
+    head.left.left = new TreeNode(100)
+    head.left.right = new TreeNode(30)
+    let g = head.left.right
+    head.right.left = new TreeNode(50)
+    head.right.right = new TreeNode(70)
+
+    return { head, g }
+}
+
+//test code
+let { head, g } = createListNode()
+let ans= validateBinarySearchTree(head)
+console.log(ans)

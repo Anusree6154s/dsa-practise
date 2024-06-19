@@ -38,9 +38,39 @@
 // Explanation 1
 // In the given input, the frequency of "bus" is 1 and it is the 1st most frequent word.
 
-function frequentWords(words, k) {}
-const n = parseInt(readLine())
-    const words = readLine().split(' ')
-    const k = parseInt(readLine())
-    const result = frequentWords(words, k)
-    console.log(result.join("\n"))
+//tc=O(k), sc=O(k)-> in case every word is diff in arr
+function frequentWords(words, k) {
+    //to find the k most frequent words
+    // if more than 1 such words, return a lexicographicaly sorted array
+
+    let map = new Map()
+    for (let word of words) {
+
+        //set count
+        if (map.has(word)) {
+            let count = map.get(word)
+            map.set(word, ++count)
+        } else {
+            map.set(word, 1)
+        }
+    }
+
+    //return a sorted array
+    let arr = Array.from(map.entries()) //array of [key, value] pairs
+    arr.sort((a, b) => {
+        if (a[1] == b[1]) {
+            //if it has a same value, return based on keys lexicographically
+            return a[0] - b[0]
+        } else {
+            //else return based on values in descending order
+            return b[1] - a[1]
+        }
+    })
+
+    return [arr[0][0], arr[1][0]]
+}
+const n = 8
+const words = ["the", "day", "is", "sunny", "the", "the", "the", "sunny"];
+const k = 2
+const result = frequentWords(words, k)
+console.log(result)

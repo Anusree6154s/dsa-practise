@@ -62,4 +62,67 @@ class TreeNode {
 }
 */
 
-function topViewBinaryTree(root) {}
+class TreeNode {
+    constructor(val) {
+        this.val = val
+        this.right = null
+        this.left = null
+    }
+}
+
+function topViewBinaryTree(root) {
+    //approach: each time we go down level, we calculate the breadth from the center, and record it in map. return nothing 
+    // for each breadth, one node will be recorded. if a node already exsits for one breadth, no other node will be recorded
+    // so from the top, the very first node seen will be recorded first
+
+    //using map 
+    let map = new Map()
+    let level = 0
+
+    function topView(root, map, level) {
+        if (!root) return
+
+        //first record the currnt node, if map doesnt have
+        if (!map.has(level)) map.set(level, root.val)
+
+        // then level-1 for left and level+1 for right 
+        topView(root.left, map, level - 1)
+        topView(root.right, map, level + 1)
+
+        return
+    }
+
+    topView(root, map, level)
+
+    //now sort it from negative to positive, because map wiill be unsorted
+
+    // Extract the keys and sort them in ascending order
+    let sortedKeys = Array.from(map.keys()).sort((a, b) => a - b);
+    // Use the sorted keys to create a sorted array of values
+    let sortedValues = sortedKeys.map(key => map.get(key));
+    
+    return sortedValues
+}
+
+
+
+//create ListNode
+function createListNode() {
+
+    //10 15 25 12 40 16 20
+    let head = new TreeNode(10)
+    head.left = new TreeNode(40)
+    head.right = new TreeNode(25)
+    head.left.left = new TreeNode(16)
+    head.left.left.right = new TreeNode(20)
+    head.right.left = new TreeNode(15)
+    head.right.right = new TreeNode(12)
+
+    return head
+}
+
+
+//test code
+let root = createListNode()
+let ans = topViewBinaryTree(root)
+console.log(ans)

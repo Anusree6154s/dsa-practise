@@ -47,10 +47,39 @@
 
 // 1 <= Length of each string <= 10^5
 
-function backspaceStringCompare(s, t) { }
+//tc=O(n), sc=O(n)
+function backspaceStringCompare(s, t) {
+    let stack1 = []
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] == '#' && stack1.length !== 0) {
+            stack1.pop()
+
+        } else {
+            stack1.push(s[i])
+        }
+    }
+
+    let stack2 = []
+    for (let i = 0; i < t.length; i++) {
+        if (t[i] == '#' && stack2.length !== 0) {
+            stack2.pop()
+
+        } else {
+            stack2.push(s[i])
+        }
+    }
+
+    stack1.forEach((item, index) => {
+        if (item !== stack2[index]) {
+            return false
+        }
+    })
+
+    return true
+}
 
 
-const s = 2
-const t = 'as#sddff#'
+const s = "a##b"
+const t = 'ab'
 const result = backspaceStringCompare(s, t);
 console.log((result ? "true" : "false"))

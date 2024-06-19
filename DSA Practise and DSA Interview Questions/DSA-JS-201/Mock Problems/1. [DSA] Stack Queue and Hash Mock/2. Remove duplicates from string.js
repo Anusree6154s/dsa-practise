@@ -29,7 +29,20 @@
 // Constraints
 // 1 <= |s| <= 10^5
 
-function removeAdjacentDuplicates(s) {}
-let s = readLine();
-    let result = removeAdjacentDuplicates(s);
-    console.log(result);
+function removeAdjacentDuplicates(s) {
+    // to remove characters that repeat 2 times 
+    //using stack. add a value. if similar value comes as last element, pop teh last value in stack, else push it in 
+
+    let stack = []
+    for (let char of s) {
+        if (stack.length > 0 && stack[stack.length - 1] === char) {
+            stack.pop(); // Remove the duplicate character
+        } else {
+            stack.push(char); // Add the current character to the stack
+        }
+    }
+    return stack
+}
+let s = 'abbaca'
+let result = removeAdjacentDuplicates(s);
+console.log(result);

@@ -40,8 +40,121 @@
 // Constraints
 // 1 <= length(S), length(P) <= 10^6
 
-function findAllAnagramsInAString(s, p) {}
-let [s, p] = readLine().split(" ");
+//tc=O(s), sc=O(s)-> in case when every lettr in s is an anagram
+function findAllAnagramsInAString(s, p) {
+    //using 2 hasmaps and comparing h=them
+
+    let sMap = new Map()
+    let pMap = new Map()
+
+    let ans = []
+
+    //filling pMap
+    for (let item of p) {
+        if (pMap.has(item)) {
+            let count = pMap.get(item)
+            pMap.set(item, ++count)
+        } else {
+            pMap.set(item, 1)
+        }
+    }
+
+    //window problem
+    //a for loop for getting the window and while loop for maintaining
+    let left = 0
+    for (let right = 0; right < s.length; right++) {
+        //add new letter
+        if (sMap.has(s[right])) {
+            let count = sMap.get(s[right])
+            sMap.set(s[right], ++count)
+        } else {
+            sMap.set(s[right], 1)
+        }
+        
+        while (sMap.size===pMap.size) {
+            //update answer 
+            if (isEqual(sMap, pMap)) ans.push(left)
+
+            //remove prev left letter
+            let count = sMap.get(s[left])
+            if (count == 1) {
+                sMap.delete(s[left])
+            } else {
+                sMap.set(s[left], --count)
+            }
+           
+            //update left
+            left++
+
+        }
+    }
+
+    //isEqual helper function
+    //tc=O(1) -> for 26 letters
+    function isEqual(map1, map2) {
+        //if maplength are diff, return false (but while loop is already based on it we can skip it)
+        // if any one elemnt of map differs in key or value, return false
+
+        for (let [key, value] of map1) {
+            if (!map2.has(key) || map2.get(key) !== value) return false
+        }
+        
+        return true
+    }
+
+    return ans
+}
+
+
+
+
+//ANOTHER APPROACH
+// //tc=O(s)-> length odf string s, sc= O(1) -> 26 letters
+// function findAllAnagramsInAString(s, p) {
+//     //will using char codes
+
+//     //will make two arrays of length 26 filled with 0
+//     // follows the principal:
+//     // anyLetter.charCodeat(0)-a.charCodeAt(0) = a number between 0 to 25 
+//     //-> ∴ pointing to their position in the array
+
+//     // we will have a fixed array and a variable window aray
+//     // both having position values incremented to 1 if the letter matches
+//     // if array1 == array2, then window matches the anagram
+
+//     let sArray = new Array(26).fill(0)
+//     let pArray = new Array(26).fill(0)
+
+//     let aCharCode = 'a'.charCodeAt(0)
+
+//     //fill pArray
+//     for (let i = 0; i < p.length; i++) {
+//         let position = p.charCodeAt(i) - aCharCode
+//         pArray[position] = ++pArray[position]
+//     }
+
+//     //window problem
+//     //a for loop for getting the window and while loop for maintaining
+//     let left =0
+//     for(let right=0; right<s.length; right++){
+
+//         while(isEqual(sArray, pArray)){
+
+//         }
+//     }
+
+
+//     //isEqual helper function
+//     //tc=O(1) -> for 26 letters
+//     function isEqual(arr1, arr2){
+//         for(let i=0; i<arr1.length; i++){
+//             if(arr1[i]!==arr2[i]) return false
+//         }
+//         return true
+//     }
+
+// }
+let [s, p] = ['bacdgabcda', 'abcd']
 let result = findAllAnagramsInAString(s, p);
 
 console.log(result.length);

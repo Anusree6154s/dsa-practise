@@ -54,4 +54,90 @@
 
 // Boundary traversal starts from the root node i.e. 10 then the left boundary i.e. 10, 40, 16, 8, the leaf nodes i.e. 8, 9, 12 and finally the right boundary i.e. 12, 25, 10. We won't take a particular node twice so the final answer after ignoring the repeated nodes would be - 10, 40, 16, 8, 9, 12, 25.
 
-function binaryTreeBoundaryTraversal(root) {}
+class TreeNode {
+    constructor(val) {
+        this.val = val
+        this.right = null
+        this.left = null
+    }
+}
+
+function binaryTreeBoundaryTraversal(root) {
+    //travese left side first - top to bottom
+    //traverse leaves -  bottom left to top right
+    //traverse - bottom to top
+
+    //while travelling right and left side, we dont have to travel to its bracnches
+    //which means in leftTraversal, if no left ,only then go to right
+    //similary for rightTraversal, if nor ight then only go to left
+
+    let ans = []
+    function leftTraversal(root, ans) {
+        if (!root) return
+
+        //record node first, always must have a child (cause for childless ones we use leafTraversal)
+        if (root.right || root.left) ans.push(root.val)
+
+        // then traverse 
+        if (root.left) { leftTraversal(root.left, ans) }
+        else { leftTraversal(root.right, ans) }
+
+        return
+    }
+    function leafTraversal(root, ans) {
+        if (!root) return
+
+        // first traverse to left bottom
+        leafTraversal(root.left, ans)
+
+        //record the leaves if no children
+        if (!root.right && !root.left) ans.push(root.val)
+
+        // then traverse to bottom of right and come up 
+        leafTraversal(root.right, ans)
+
+        return
+    }
+    function rightTraversal(root, ans) {
+
+        if (!root) return
+
+        // first go the botom of right 
+        if (root.right) { rightTraversal(root.right, ans) }
+        else { rightTraversal(root.left, ans) }
+
+        // the record the node vlue ,always must have a child (cause for childless ones we use leafTraversal)
+        if (root.right || root.left) ans.push(root.val)
+
+        return
+    }
+
+    leftTraversal(root, ans)
+    leafTraversal(root, ans)
+    rightTraversal(root, ans)
+
+    return ans
+
+}
+
+
+//create ListNode
+function createListNode() {
+
+    //10 15 25 12 40 16 20
+    let head = new TreeNode(10)
+    head.left = new TreeNode(40)
+    head.right = new TreeNode(25)
+    head.left.left = new TreeNode(16)
+    head.left.left.right = new TreeNode(20)
+    head.right.left = new TreeNode(15)
+    head.right.right = new TreeNode(12)
+
+    return head
+}
+
+
+//test code
+let root = createListNode()
+let ans = binaryTreeBoundaryTraversal(root)
+console.log(ans)

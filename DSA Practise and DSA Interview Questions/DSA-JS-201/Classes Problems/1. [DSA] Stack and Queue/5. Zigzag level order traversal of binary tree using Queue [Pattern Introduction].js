@@ -64,5 +64,60 @@
 
 // image
 
+//constructing treeNodes
+class Node {
+    constructor(value) {
+        this.val = value
+        this.right = null
+        this.left = null
+    }
+}
+let root = new Node(1)
+root.left = new Node(2)
+root.right = new Node(3)
+root.left.left = new Node(4)
+root.left.right = new Node(5)
 
-function zigzagLevelOrder(root) {}
+//tc=O(N)-> passes through all Nodes, sc=O(N)-> stores all Nodes in ans array
+//to return the answer in form of a matrix with each inner array being each level
+function zigzagLevelOrder(root) {
+    //we are going to reverse the left and right node at alternate levels just before pushing the ans
+    // another approach is is reverse the pusing of left and right node in nextLevel
+
+    let ans = []
+    let reverse = true
+
+    let currentLevel = [root]
+    let nextLevel = []
+
+    while (currentLevel.length !== 0) {
+        let levelArray = []// to be pushed to ans after one level is completed
+
+        while (currentLevel.length !== 0) {
+            //until stack of this level empties, we will push val to levelArray
+            let node = currentLevel.pop()
+            levelArray.push(node.val)
+
+            //always left first, then right (unless reversing needed here)
+            if (node.left) nextLevel.push(node.left)
+            if (node.right) nextLevel.push(node.right)
+
+        }
+
+        if (reverse) levelArray.reverse()
+        ans.push(levelArray)
+        reverse = !reverse
+
+        currentLevel = [...nextLevel]
+        nextLevel = []
+
+    }
+
+    return ans
+}
+
+let ans = zigzagLevelOrder(root)
+for (let i = 0; i < ans.length; i++) {
+    console.log(ans[i].join(' '))
+}
+

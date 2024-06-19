@@ -19,30 +19,38 @@
 // Constraints
 // 0 <= length of string <= 10^5
 
+
+//sc= On, tc=On
 function longestValidParentheses(s) {
-    let stack = [-1] 
-    let length = 0
+    //when (, add position to the stack
+    //when ), first remove whats in stack, then 
+    //if stack empty add postion
+    // else, calculate length i-stack[last]
+
+    let stack = [-1] //as the value from which to calculate length from
+    let maxLength = 0
     for (let i = 0; i < s.length; i++) {
         if (s[i] == '(') {
             stack.push(i)
         } else {
-            if (stack.length !== 0) {
-                stack.pop()
-                if (stack.length !== 0) {
-                    length = Math.max(length, i - stack[stack.length - 1])
-                } else { 
-                    stack.push(i)
-                }
+            stack.pop()
+            if (stack.length == 0) {
+                stack.push(i)
+            } else {
+                maxLength = Math.max(maxLength, i - stack[stack.length - 1])
             }
         }
     }
 
-    return length
+    return maxLength
+
 }
 
 
 function main() {
-    let S = readLine();
+    let S = '()(()(())'
     let ans = longestValidParentheses(S);
     console.log(ans);
 }
+
+main()

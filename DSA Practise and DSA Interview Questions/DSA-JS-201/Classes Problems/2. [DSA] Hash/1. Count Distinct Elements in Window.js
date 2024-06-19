@@ -40,10 +40,50 @@
 
 // 1<=Ai<=10000
 
-
+//tc=O(n), sc=O(n)-> in case b=1 aka window is 1
 function countDistinctElements(n, b, arr) {
+    //window problem
+
+    //for loop for first creating the window
+    //once window created, while loop to maintain it
+
+    //we maintain 2 variables: 
+    //one for the element to be removed (in end - arr[right-b])
+    //other for the element to be added (in front - arr[right])
+
+    //reduce count of removing element, add count of adding element
+
+    let ans = []
+    let map = new Map()
+    let left = 0
+    for (let right = 0; right < n; right++) {
+        if (map.has(arr[right])) {
+            let count = map.get(arr[right])
+            map.set(arr[right], ++count)
+        } else {
+            map.set(arr[right], 1)
+        }
+
+        while (right - left + 1 == b) {//this loop will run only once every round
+            //update distinct elements
+            ans.push(map.size)
+
+            //remove old element from window
+            let count = map.get(arr[left])
+            if (count == 1) {
+                map.delete(arr[left])
+            } else {
+                map.set(arr[left], --count)
+            }
+
+            //move left pointer
+            left++
+        }
+    }
+
+    return ans
 }
-let [n, b] = readIntArr();
-let arr = readIntArr();
+let [n, b] = [6, 3]
+let arr = [1, 2, 1, 3, 4, 3]
 let result = countDistinctElements(n, b, arr);
 console.log(...result);

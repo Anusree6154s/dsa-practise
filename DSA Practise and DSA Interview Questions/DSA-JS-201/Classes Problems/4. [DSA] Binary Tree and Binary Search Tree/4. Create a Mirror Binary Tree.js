@@ -61,4 +61,50 @@
 
 // 1 <= value of nodes <= 10000
 
-function mirrorBinaryTree(root) {}
+
+class TreeNode {
+    constructor(val) {
+        this.val = val
+        this.right = null
+        this.left = null
+    }
+}
+
+function mirrorBinaryTree(root) {
+    //approach: first go deep, then start swapping from the bottom. then return root(aka parent)
+    //return the parent so that in next round we can swap the parents
+
+    if (!root) return null;
+
+    //first go down and assign temporary variables: left and right
+    mirrorBinaryTree(root.left); //once at the bottom, it will return right. so left=root.right
+    mirrorBinaryTree(root.right); //and right=root.left
+    
+    [root.left, root.right] = [root.right, root.left];
+    
+    return root;
+
+}
+
+
+
+//create ListNode
+function createListNode() {
+
+    //10 15 25 12 40 16 20
+    let head = new TreeNode(10)
+    head.left = new TreeNode(40)
+    head.right = new TreeNode(25)
+    head.left.left = new TreeNode(16)
+    head.left.left.right = new TreeNode(20)
+    head.right.left = new TreeNode(15)
+    head.right.right = new TreeNode(12)
+
+    return head
+}
+
+
+//test code
+let root = createListNode()
+let ans = mirrorBinaryTree(root)
+console.log(ans)

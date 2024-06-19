@@ -25,9 +25,21 @@
 
 // 0 <= A[i] <= 10^9
 
-function nextSmallerElement(n, A) {}
+function nextSmallerElement(n, A) {
+    let ans = new Array(n).fill(-1)
+    let stack = []
+    for (let i = 0; i < n - 1; i++) {
+        stack.push(i)
+        while (stack.length !==0 && A[i + 1] < A[stack[stack.length - 1]]) {
+                ans[stack.pop()] = A[i + 1]
+        }
 
-let n = parseInt(readLine(), 10);
-let arr = readIntArr();
+    }
+
+    return ans
+}
+
+let n = 5
+let arr = [8, 2, 5, 10, 4]
 let result = nextSmallerElement(n, arr);
 console.log(...result);

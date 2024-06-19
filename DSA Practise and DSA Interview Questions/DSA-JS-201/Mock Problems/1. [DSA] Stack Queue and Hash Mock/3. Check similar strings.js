@@ -43,11 +43,35 @@
 
 // 1 <= N,M <= 100000
 
-function similarString(n, s1, m, s2, k) {}
+function similarString(n, s1, m, s2, k) {
+    //using 2 hashmaps
+    //in hashmap: if map2 dont have item of map or the size desnt match
 
-const [n, m, k] = readIntArr();
-let s1 = readLine();
-let s2 = readLine();
+    let map1 = new Map()
+    let map2 = new Map()
+
+    for (let item of s1) {
+        if (!map1.has(item)) map1.set(item, 1)
+    }
+
+    for (let item of s2) {
+        if (!map2.has(item)) map2.set(item, 1)
+    }
+
+    //check hashmaps
+    if (map1.size!==map2.size) return false
+    for(let [key, value] of map1){
+        if(!map2.has(key)) return false
+    }
+
+    return true
+}
+
+const [n, m, k] = [5, 3, 2]
+// let s1 = 'xyzzzbbbbbxx'
+// let s2 = 'bxy'
+let s1 = 'aaabc'
+let s2 ='abc'
 
 const res = similarString(n, s1, m, s2, k);
 console.log(res);

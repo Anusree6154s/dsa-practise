@@ -39,3 +39,50 @@
 // Constraints
 // 0 <= Number of nodes <= 10^5
 
+//tc= O(N)-> number of Node in list, sc = O(1)
+function removeDuplicates(head) {
+    //removing of elements is done by: linking prev element with next elemet
+
+    if (!head) return head //just customary ritual before any linkedlist code for single node edge case
+
+    let prev = head
+    let current = head.next
+    while (current !== null) {
+        if (prev.val === current.val) {
+            //prev.next changes
+            //prev remains same
+            //current changes
+            prev.next = current.next
+            current = prev.next
+        } else {
+            //prev changes
+            //current changes
+            prev = prev.next
+            current = current.next
+        }
+    }
+
+    // console.log(prev, current)
+
+    return head
+}
+
+//create ListNode
+class ListNode {
+    constructor(val) {
+        this.val = val
+        this.next = null
+    }
+}
+let head = new ListNode(1)
+head.next = new ListNode(2)
+head.next.next = new ListNode(2)
+head.next.next.next = new ListNode(3)
+head.next.next.next.next = new ListNode(3)
+
+//test code
+let ans = removeDuplicates(head)
+while (ans != null) {
+    console.log(ans.val)
+    ans = ans.next
+}

@@ -37,4 +37,46 @@
 // Explanation 1
 // The 3rd node containing 2 has been removed leading to 1 5 4 3.
 
-function deleteGivenNode(node) {}
+//tc=O(1), sc=O(1)
+function deleteGivenNode(node) {
+    //since we dont know the prev node, we will copy next node to current node and delete the next node
+
+    node.val = node.next.val //copy node
+    node.next = node.next.next //delete node
+}
+
+
+//create ListNode
+function createListNode() {
+    class ListNode {
+        constructor(val) {
+            this.val = val
+            this.next = null
+        }
+    }
+
+    let input = '1 5 2 4 3'
+    let arr = input.split(' ').map(Number)
+    let head = new ListNode(arr[0])
+    let current = head
+    for (let i = 1; i < arr.length; i++) {
+        current.next = new ListNode(arr[i])
+        current = current.next
+    }
+
+    return head
+}
+
+
+//test code - Singly LinkedList (with node)
+let head = createListNode()
+let node = head
+for (let i = 1; i < 3; i++) {
+    node = node.next
+}
+deleteGivenNode(node)
+let ans = head
+while (ans != null) {
+    console.log(ans.val)
+    ans = ans.next
+}

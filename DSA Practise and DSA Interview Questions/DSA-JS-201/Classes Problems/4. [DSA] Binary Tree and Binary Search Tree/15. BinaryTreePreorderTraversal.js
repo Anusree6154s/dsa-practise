@@ -75,5 +75,51 @@ Use new TreeNode(data) to create new Node
  */
 
 
+class TreeNode {
+    constructor(val) {
+        this.val = val
+        this.right = null
+        this.left = null
+    }
+}
 
-function preorderTraversal(root) {}
+function preorderTraversal(root) {
+    //preorder traversal is where we record parent, left child, then right child
+    //1. so keep recording self
+    //2. travel down left  after recrding self
+    //3. once root reaches null, return up
+    //4. travel down right and repeat 1 and 2
+
+    let ans = []
+    function preorder(root) {
+        if (!root) return
+        ans.push(root.val)
+        preorder(root.left)
+        preorder(root.right)
+    }
+
+    preorder(root)
+    return ans
+}
+
+
+//create ListNode - bst
+function createListNode() {
+
+    //40 20 60 10 30 50 70
+    let head = new TreeNode(40)
+    head.left = new TreeNode(20)
+    head.right = new TreeNode(60)
+    head.left.left = new TreeNode(10)
+    head.left.right = new TreeNode(30)
+    let g = head.left.right
+    head.right.left = new TreeNode(50)
+    head.right.right = new TreeNode(70)
+
+    return { head, g }
+}
+
+//test code
+let { head, g } = createListNode()
+let ans = preorderTraversal(head)
+console.log(ans)
