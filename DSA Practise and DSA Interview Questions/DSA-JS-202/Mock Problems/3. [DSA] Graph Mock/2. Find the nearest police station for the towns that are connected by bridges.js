@@ -72,4 +72,45 @@
 // Explanation 2
 // The first and fourth cities are major cities and fall under their own jurisdiction. The second and third cities are connected to the first (or to fourth city also) and their distance is 1.
 
-function townsAndPoliceStations(n, b, bridgelist, s, cities) {}
+function townsAndPoliceStations(n, b, bridgelist, s, cities) {
+    //using BFS to mark the distances away from major cities one by one
+
+    // adjacency list 
+    let adj = Array.from({ length: n + 1 }, () => [])
+    for (let [a, b] of bridgelist) {
+        adj[a].push(b)
+        adj[b].push(a)
+    }
+
+    let queue = [...cities[0]]
+    console.log(queue)
+    let visited = new Set()
+    for (let city of cities[0]) {
+        visited.add(city)
+    }
+
+    let distArray = new Array(n + 1)
+    let dist = 0
+    console.log(adj)
+    while (queue.length > 0) {
+        let size = queue.length
+        for (let i = 0; i < size; i++) {
+            let city = queue.shift()
+            distArray[city] = dist
+
+            for (let neighbour of adj[city]) {
+                if (!visited.has(neighbour)) {
+                    visited.add(neighbour)
+                    queue.push(neighbour)
+                }
+            }
+        }
+        dist++
+    }
+console.log(distArray)
+    return distArray.slice(1)
+}
+
+let n = 4, b = 5, bridgelist = [[1, 2], [2, 3], [3, 4], [4, 2], [1, 3]], s = 2, cities = [[1, 4]]
+let result = townsAndPoliceStations(n, b, bridgelist, s, cities)
+console.log(result)

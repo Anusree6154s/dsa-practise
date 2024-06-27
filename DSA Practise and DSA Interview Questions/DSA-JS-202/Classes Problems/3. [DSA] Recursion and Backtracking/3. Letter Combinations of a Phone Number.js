@@ -40,4 +40,44 @@
 
 // So all combinations of these three numbers are given in the output, in the lexicographical order
 
-function letterCombinationsOfPhoneNumber(digits) {}
+function letterCombinationsOfPhoneNumber(digits) {
+    if (digits.length === 0) return [];
+
+    const map = {
+        '2': 'abc',
+        '3': 'def',
+        '4': 'ghi',
+        '5': 'jkl',
+        '6': 'mno',
+        '7': 'pqrs',
+        '8': 'tuv',
+        '9': 'wxyz'
+    };
+
+    const result = [];
+
+    // Define a recursive function to generate combinations
+    function backtrack(index, combination) {
+        // If the combination is complete, add it to the result
+        if (index === digits.length) {
+            result.push(combination);
+            return;
+        }
+
+
+        const letters = map[digits[index]]; // Get the letters corresponding to the current digit
+        for (const letter of letters) {
+            backtrack(index + 1, combination + letter); // Iterate over the letters and recursively generate combinations
+        }
+    }
+
+    // Start generating combinations with index 0 and an empty string
+    backtrack(0, '');
+
+    // Return the result
+    return result;
+}
+
+let digits = '23'
+let result = letterCombinationsOfPhoneNumber(digits)
+console.log(result)

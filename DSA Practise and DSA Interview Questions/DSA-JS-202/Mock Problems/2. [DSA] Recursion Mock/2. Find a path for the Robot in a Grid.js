@@ -54,4 +54,56 @@
 // Not Possible
 
 
-function RobotInAGrid(input1, a, b) {}
+function RobotInAGrid(input1, a, b) {
+    function findPath(grid, x, y, path) {
+        let N = grid.length;
+        let M = grid[0].length;
+
+        // Base cases
+        if (x >= N || y >= M || grid[x][y] === 1) {
+            return false;
+        }
+
+        // Reached the bottom-right corner
+        if (x === N - 1 && y === M - 1) {
+            path.push([x + 1, y + 1]);  // Append 1-based coordinates to path
+            return true;
+        }
+
+        // Move right
+        if (findPath(grid, x, y + 1, path)) {
+            path.push([x + 1, y + 1]);
+            return true;
+        }
+
+        // Move down
+        if (findPath(grid, x + 1, y, path)) {
+            path.push([x + 1, y + 1]);
+            return true;
+        }
+
+        return false;
+    }
+    // Initialize path array
+    let path = [];
+
+    // Try to find path starting from (0, 0)
+    if (findPath(input1, 0, 0, path)) {
+        // Reverse path because we appended from destination to source
+        path.reverse();
+        for (let i = 0; i < path.length; i++) {
+            console.log((path[i][0]) + " " + (path[i][1]));
+        }
+    } else {
+        console.log("Not Possible");
+    }
+}
+
+let input1 = [[0, 0, 1],
+
+[0, 1, 0],
+
+[0, 0, 0]]
+let a = 3, b = 3
+let result = RobotInAGrid(input1, a, b)
+console.log(result)

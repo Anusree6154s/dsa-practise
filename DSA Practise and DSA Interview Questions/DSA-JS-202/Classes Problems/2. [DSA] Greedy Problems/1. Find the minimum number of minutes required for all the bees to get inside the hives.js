@@ -33,5 +33,33 @@
 
 // So, within 3 minutes, all the bees will be inside hives.
 
-function beesToHives(n,bees,hives){
+function beesToHives(n, bees, hives) {
+    //approach, after sorting and finding times taekn from each bee to reach each hive, the longest time taken will be the min time req by this array of bees
+    //     Sorting for Optimal Matching:
+
+    // First, sort both arrays representing the positions of bees and hives. Sorting allows us to efficiently pair each bee with a hive that minimizes the total movement time.
+    // Calculate Total Movement Time:
+
+    // After sorting, calculate the total movement time required for each bee to reach its corresponding hive. Since both arrays are sorted:
+    // If bee i is at position bees[i] and hive i is at position hives[i], the time taken for bee i to move to hive i is simply the absolute difference |bees[i] - hives[i]|.
+    // Summing Up:
+
+    // Sum all these absolute differences to get the total minimum time required for all bees to reach their respective hives.
+
+    hives.sort((a, b) => a - b)
+    bees.sort((a, b) => a - b)
+
+    let longestTime = 0
+    bees.forEach((beePosition, index) => {
+        let time = Math.abs(beePosition - hives[index])
+        longestTime = Math.max(time, longestTime)
+    })
+
+    return longestTime
 }
+
+let n = 3
+let bees = [5, -3, 9]
+let hives = [5, 8, 0]
+let result = beesToHives(n, bees, hives)
+console.log(result)

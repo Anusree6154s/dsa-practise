@@ -62,4 +62,50 @@
 // Explanation 2
 // You cannot choose any position such that you can complete a full circle of the track. So the answer is -1.
 
-function CircularRace(n,gas,burn){}
+function CircularRace(n, gas, burn) {
+    //     Approach:
+    // Basic Check:
+
+    // First, check if the total amount of gas available across all stations is greater than or equal to the total gas required to complete the circuit. If not, it's impossible to complete the circuit, and we should return -1.
+    // Greedy Approach:
+
+    // Use a greedy approach to determine the starting station.
+    // If at any point, the total gas in the tank is negative, it means we cannot start from any of the stations before this point.
+    // We then reset the starting point to the next station and reset the current gas to zero.
+
+    //PROCESS
+    // Calculate the total gas and total burn.
+    // If total gas is less than total burn, return -1. (not after each addition, but after the entire summation)
+    // Iterate and Track:
+    // Iterate over each gas station.
+    // Maintain a running sum of gas in the tank.
+    // If at any point this running sum becomes negative, reset the starting station to the next station and reset the running sum.
+    // Return Result:
+    // If the total gas is greater than or equal to the total burn, the last reset starting point will be the required starting station.
+
+    let startingPoint = 0
+    let totalGas = 0
+    let totalBurn = 0
+    let currentGas = 0
+    for (let i = 0; i < n; i++) {
+        totalGas += gas[i]
+        totalBurn += burn[i]
+
+        currentGas += gas[i] - burn[i]
+        if (currentGas < 0) {
+            startingPoint = i + 1
+            currentGas = 0
+        }
+    }
+
+    if (totalGas < totalBurn) return -1
+
+    // if currentGas at last index turns out -1, totalGas goes less than toal burn thus returning -1 in if statement above
+    // so we dont have to have special check to see if starting point is less than n or not
+    return startingPoint + 1
+}
+
+
+let n = 5, gas = [5, 1, 2, 3, 4], burn = [4, 2, 3, 1, 5]
+let result = CircularRace(n, gas, burn)
+console.log(result)

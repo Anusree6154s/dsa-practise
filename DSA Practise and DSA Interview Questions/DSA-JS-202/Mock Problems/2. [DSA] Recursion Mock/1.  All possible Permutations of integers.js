@@ -30,4 +30,33 @@
 // Constraints
 // 1 <= N <= 8
 
-function permutation(nums) {}
+function permutation(nums) {
+    //using DFS and backtracking
+
+    function backtrack(start) {
+        if (start === nums.length) {
+            result.push([...nums])
+            return
+        }
+
+        for (let i = start; i < nums.length; i++) {
+            // Swap the current element with the start element
+            [nums[start], nums[i]] = [nums[i], nums[start]];
+
+            backtrack(start + 1);
+
+            // Swap back to backtrack
+            [nums[start], nums[i]] = [nums[i], nums[start]];
+        }
+
+    }
+    let result = []
+    backtrack(0)
+
+    return result
+}
+
+
+let nums = [1, 2, 3]
+let result = permutation(nums)
+console.log(result)

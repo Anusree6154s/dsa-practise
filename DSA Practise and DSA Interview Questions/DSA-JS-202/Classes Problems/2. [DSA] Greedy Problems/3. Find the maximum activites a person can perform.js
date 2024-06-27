@@ -33,4 +33,32 @@
 
 // 1<= times <= 10^9
 
-function activitySelection(starting,ending) {}
+function activitySelection(starting, ending) {
+    // meetingroom kind of problem
+    // store starting and ending time in Array
+    // sort the array by ending time in ascending order 
+    // forEach element of array, if sarting time is < totalEndingTime, add the no. of activities and change the new totalEndingTime as current ending time
+
+    let arr = []
+    for (let i = 0; i < starting.length; i++) {
+        arr.push({ start: starting[i], end: ending[i] })
+    }
+
+    arr.sort((a, b) => a.ending - b.ending)
+
+    let totalActivities = 0
+    let totalEndingTime = 0
+    arr.forEach(item => {
+        if (item.start >= totalEndingTime) {
+            totalActivities++
+            totalEndingTime = item.end
+        }
+    })
+
+    return totalActivities
+}
+
+
+let starting = [1, 2, 3], ending = [2, 4, 4]
+let result = activitySelection(starting, ending)
+console.log(result)

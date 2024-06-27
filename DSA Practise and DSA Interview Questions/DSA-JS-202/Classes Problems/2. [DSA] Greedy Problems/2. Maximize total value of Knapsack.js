@@ -39,4 +39,54 @@
 
 // Note: It is recommended to use double instead of float to store values in C++ submissions.
 
-function fractionalKnapsack(N, W, weights, values) {}
+function fractionalKnapsack(N, W, weights, values) {
+    //Calculate Value to Weight Ratio:
+
+    // For each item, calculate the value-to-weight ratio which helps in determining the most valuable items per unit weight.
+    // Sort Items by Ratio:
+
+    // Sort the items in descending order based on the value-to-weight ratio.
+    // Fill the Knapsack:
+
+    // Start filling the knapsack with items from the sorted list until the knapsack can no longer accommodate the whole item.
+    // If the current item cannot be fully accommodated, take the fractional part of it.
+    // Calculate Total Value:
+
+    // Keep adding the values of the items (or their fractions) to get the maximum value.
+
+    //calculate weight to value ratio
+    let ratio = []
+    for (let i = 0; i < N; i++) {
+        ratio.push({ i: i, ratio: values[i] / weights[i] })
+    }
+
+    //sort by ratio in descending order
+    ratio.sort((a, b) => b.ratio - a.ratio)
+
+    //fill ans with weight by ratio, either full or part depending on if it is less than W
+    //we fill the ans with values, 
+    let totalValue = 0
+    let totalWeight = 0
+    for (let i = 0; i < N; i++) {
+        let index = ratio[i].i
+        let weight = weights[index]
+        let value = values[index]
+
+        if (weight + totalWeight <= W) { //if weights sum is less than totalWeight
+            totalValue += value
+            totalWeight += weight
+        } else { //else totalweight - currentWeight first. then find its related value from ratio
+            let fractionWeight = W - totalWeight
+            let fractionValue = ratio[i].ratio * fractionWeight
+            totalValue += fractionValue
+            break
+        }
+
+    }
+
+    return totalValue
+}
+
+let N = 3, W = 4, weights = [2, 2, 3], values = [100, 10, 120]
+let result = fractionalKnapsack(N, W, weights, values)
+console.log(result)

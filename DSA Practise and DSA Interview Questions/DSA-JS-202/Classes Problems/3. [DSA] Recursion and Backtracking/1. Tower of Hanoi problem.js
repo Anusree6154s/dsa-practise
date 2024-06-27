@@ -45,4 +45,34 @@
 
 // Then move Disk 1 from C to B and so on
 
-function towerOfHanoi(n) {}
+function towerOfHanoi(n) {
+    //each step taken for this shifting of source to destination is pushed into this array
+    let steps = []
+    function solveTowersOfHanoi(n, source, auxiliary, destination) {
+        // first we move from source to auxillary
+        // then source to destination
+        // then auxillary to destination
+
+        // exception: when we have just element in source, we move from source to destination
+        // const steps = [];
+
+        if (n === 1) {
+            steps.push(`${n} ${source} ${destination}`);
+            return;
+        }
+        solveTowersOfHanoi(n - 1, source, destination, auxiliary) //first go down to 1 and push source to auxillary
+        steps.push(`${n} ${source} ${destination}`); //then push from source to destination 
+        solveTowersOfHanoi(n - 1, auxiliary, source, destination) // then go down to 1 and push from auxillary to destination
+        //thus it will stack
+
+        return ;
+    }
+
+    solveTowersOfHanoi(n, 'A', 'B', 'C');
+    return steps
+}
+
+
+let n = 3
+let result = towerOfHanoi(n)
+console.log(result)

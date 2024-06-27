@@ -64,14 +64,14 @@ function mergeKSortedArrays(arr) {
             this.heap = []
         }
 
-        getParentIndex() {
+        getParentIndex(i) {
             return Math.floor((i - 1) / 2)
         }
 
-        getLeftChildIndex() {
+        getLeftChildIndex(i) {
             return 2 * i + 1
         }
-        getRightChildIndex() {
+        getRightChildIndex(i) {
             return 2 * i + 2
         }
         insert(val) {
@@ -79,13 +79,12 @@ function mergeKSortedArrays(arr) {
             if (this.size() > 1) this.heapifyUp()
         }
         remove() {
-            let last = this.heap.pop()
-            let min = this.heap[0]
-            if (this.size > 1) {
-                this.heap[0] = last
-                this.heapifyDown()
-            }
-            return min
+            if (this.size() === 0) return null;
+            if (this.size() === 1) return this.heap.pop();
+            this.swap(0, this.size() - 1);
+            const val = this.heap.pop();
+            this.heapifyDown();
+            return val;
         }
         peek() {
             return this.heap[0]
@@ -105,11 +104,12 @@ function mergeKSortedArrays(arr) {
 
             let selfIndex = this.size() - 1
             let parentIndex = this.getParentIndex(selfIndex)
-            while (parentIndex !== 0 && this.heap[parentIndex] > this.heap[selfIndex]) {
+            while (parentIndex >= 0 && this.heap[parentIndex][0] > this.heap[selfIndex][0]) {
                 this.swap(parentIndex, selfIndex)
                 selfIndex = parentIndex
                 parentIndex = this.getParentIndex(selfIndex)
             }
+
 
         }
         heapifyDown() {
@@ -119,7 +119,7 @@ function mergeKSortedArrays(arr) {
             //if no smaller value found, break, else swap and update smaller value child as the next parent 
 
             let parentIndex = 0
-            let smallestIndex = parentIndex
+            let smallestIndex = 0
             while (parentIndex < this.size()) {
                 let leftChildIndex = this.getLeftChildIndex(parentIndex)
                 let rightChildIndex = this.getRightChildIndex(parentIndex)
@@ -137,13 +137,15 @@ function mergeKSortedArrays(arr) {
                     parentIndex = smallestIndex
                 }
             }
+
         }
     }
 
-    let heap = minHeap()
+    let heap = new minHeap()
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].length > 0) heap.insert([arr[i][0], i, 0])
     }
+
 
     let ans = []
     while (heap.size() > 0) {
@@ -152,7 +154,12 @@ function mergeKSortedArrays(arr) {
         //add next element to heap if it is less than array length
         let [value, arrayIndex, elementIndex] = heap.remove()
         ans.push(value)
-        if (elementIndex + 1 < arr[i].length) heap.insert([arr[i][elementIndex + 1], i, elementIndex + 1])
-
+        if (elementIndex + 1 < arr[arrayIndex].length) heap.insert([arr[arrayIndex][elementIndex + 1], arrayIndex, elementIndex + 1]);
     }
+
+    return ans
 }
+
+let arr = [[2, 4, 7], [8], [2, 5, 5, 9]]
+let result = mergeKSortedArrays(arr)
+console.log(result)

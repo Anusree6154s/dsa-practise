@@ -58,7 +58,7 @@
 function kClosestPointsToOrigin(points, k) {
     // to find the first k elements if sorted in ascending order . which mean last k elements of maxheap 
 
-    
+
 
     class maxHeap {
         //1. constructor
@@ -84,18 +84,15 @@ function kClosestPointsToOrigin(points, k) {
 
         insert(val) {
             this.heap.push(val)
-            console.log(this.heap)
             if (this.size() > 1) this.heapifyUp();
         }
         remove() {
-            const first = this.peek();
-            const last = this.heap.pop();
-            if (this.size() > 0) {
-                this.heap[0] = last;
-                console.log(this.heap)
-                this.heapifyDown();
-            }
-            return first;
+            if (this.size() === 0) return null;
+            if (this.size() === 1) return this.heap.pop();
+            this.swap(0, this.size() - 1);
+            const val = this.heap.pop();
+            this.heapifyDown();
+            return val;
         }
         peek() {
             return this.heap[0]
@@ -117,65 +114,61 @@ function kClosestPointsToOrigin(points, k) {
             //new self is its parent
 
             //iterating from parent of last to first of array
-            let self = this.size() - 1;
-            console.log(this.heap)
-            console.log(self)
-            for (let ownParent = this.getParentIndex(self); ownParent >= 0; self = ownParent, ownParent = this.getParentIndex(self)){
-                if (this.heap[self][0] > this.heap[ownParent][0]) {
-                    this.swap(self, ownParent);
+            let currentIndex = this.size() - 1;
+            let parentIndex = this.getParentIndex(currentIndex)
+            while (parentIndex >= 0) {
+                if (this.heap[currentIndex][0] > this.heap[parentIndex][0]) {
+                    this.swap(currentIndex, parentIndex);
                 } else {
                     break;  // If no swap is needed, the heap property is satisfied
                 }
+
+                currentIndex = parentIndex
+                parentIndex = this.getParentIndex(currentIndex)
             }
-            console.log(this.heap)
-    }
-    heapifyDown() {
-        //for maxHeap: move any parent who is larger than its child
+        }
+        heapifyDown() {
+            //for maxHeap: move any parent who is larger than its child
 
-        //start from beginnning to end
-        //check if parent larger than left child or right child
-        // if yes swap and larger child will be next parent
-        //if no child larger than parent, then break
-        let largest = 0
-        console.log(this.heap)
-        for (let parentIndex = 0; parentIndex < this.size(); parentIndex = largest) {
-            let leftChildIndex = this.getLeftChildIndex(parentIndex)
-            let rightChildIndex = this.getRightChildIndex(parentIndex)
+            //start from beginnning to end
+            //check if parent larger than left child or right child
+            // if yes swap and larger child will be next parent
+            //if no child larger than parent, then break
+            let largest = 0
+            let parentIndex = 0
+            while (parentIndex < this.size()) {
+                let leftChildIndex = this.getLeftChildIndex(parentIndex)
+                let rightChildIndex = this.getRightChildIndex(parentIndex)
 
-            // Check if the left child is within bounds and is larger than the current largest
-            if (leftChildIndex < this.size() && this.heap[leftChildIndex][0] > this.heap[largest][0]) {
-                largest = leftChildIndex;
+                // Check if the left child is within bounds and is larger than the current largest
+                if (leftChildIndex < this.size() && this.heap[leftChildIndex][0] > this.heap[largest][0]) {
+                    largest = leftChildIndex;
+                }
+
+                // Check if the right child is within bounds and is larger than the current largest
+                if (rightChildIndex < this.size() && this.heap[rightChildIndex][0] > this.heap[largest][0]) {
+                    largest = rightChildIndex;
+                }
+
+                if (largest == parentIndex) break
+                this.swap(largest, parentIndex)
+                parentIndex = largest
             }
-
-            // Check if the right child is within bounds and is larger than the current largest
-            if (rightChildIndex < this.size() && this.heap[rightChildIndex][0] > this.heap[largest][0]) {
-                largest = rightChildIndex;
-            }
-
-            if (largest == parentIndex) break
-            this.swap(largest, parentIndex)
         }
     }
-}
 
-//points is amatrix with arrays of length 2
-// euclidean dist form orign = sqrt[(a^2)+(b^2)]
-let heap = new maxHeap()
-for (let point of points) {
-    let dist = Math.floor(Math.sqrt((point[0] ** 2) + (point[1] ** 2)))
-    console.log(dist)
-    heap.insert([dist, point])
-    console.log(heap.heap)
-    if (dist > k) {
-        console.log(heap.heap)
-        heap.remove()
-        console.log(heap.heap)
+    //points is amatrix with arrays of length 2
+    // euclidean dist form orign = sqrt[(a^2)+(b^2)]
+    let heap = new maxHeap()
+    for (let point of points) {
+        let dist = Math.floor(Math.sqrt((point[0] ** 2) + (point[1] ** 2)))
+        heap.insert([dist, point])
+        if (dist > k) {
+            heap.remove()
+        }
     }
-    console.log(heap.heap)
-}
 
-console.log(heap)
-return heap.heap.map(item => item[1])
+    return heap.heap.map(item => item[1])
 }
 
 

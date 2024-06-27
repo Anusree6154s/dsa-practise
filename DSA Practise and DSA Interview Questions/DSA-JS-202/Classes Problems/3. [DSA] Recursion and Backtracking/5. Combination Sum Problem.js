@@ -49,4 +49,31 @@
 
 // 1 <= target <= 500
 
-function combinationSum(candidates, target) {}
+function combinationSum(candidates, target) {
+    let result = []
+
+    function backtrack(sum, subset, start) {
+        if (sum === target) {
+            result.push([...subset])
+            return
+        } else if (sum > target) {
+            return
+        }
+
+        //to not let similar subsets from forming, we muct change the starting candidate each time
+        //as in the next iteration it must consider only elements after current element from candidates array
+        for (let i = start; i < candidates.length; i++) {
+            backtrack(sum + candidates[i], subset.concat(candidates[i]), i )
+        }
+    }
+
+    backtrack(0, [], 0)
+
+    return result
+}
+
+
+
+let candidates = [2, 3, 6, 7], target = 7
+let result = combinationSum(candidates, target)
+console.log(result)

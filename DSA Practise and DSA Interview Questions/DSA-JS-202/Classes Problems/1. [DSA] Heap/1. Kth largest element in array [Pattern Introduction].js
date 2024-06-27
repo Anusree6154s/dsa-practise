@@ -159,7 +159,6 @@ function kthLargestElementInAnArray(n, nums, k) {
         }
     }
 
-    console.log(heap)
 
     return heap.peek()
 }

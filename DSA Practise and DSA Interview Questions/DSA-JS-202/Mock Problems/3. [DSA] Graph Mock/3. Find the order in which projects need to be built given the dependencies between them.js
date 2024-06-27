@@ -43,4 +43,108 @@
 
 // The order "a b xy A c" is one such order.
 
-function buildOrder(project,depend) {}
+function buildOrder(project, depend) {
+    //project is the array of project name, depend is the array of edges
+    //to find the order of nodes based on incoming degree of edges
+    // so topological sort question using inDegree
+
+    //convert depend array to numbered edgelist
+    // let map = new Map()
+    // for (let i = 0; i < project.length; i++) {
+    //     map.set(project[i], i + 1)
+    // }
+    // let edgelist = [...depend]
+    // for (let i = 0; i < depend.length; i++) {
+    //     edgelist[i][0] = map.get(depend[i][0])
+    //     edgelist[i][1] = map.get(depend[i][1])
+    // }
+
+    // let nodes = project.length
+
+    // //create inDegree Array and result and adjaceny list
+    // let adj = Array.from({ length: nodes + 1 }, () => [])
+    // let inDegree = new Array(nodes + 1).fill(0)
+    // for (let [a, b] of edgelist) {
+    //     adj[a].push(b)
+    //     inDegree[b]++
+    // }
+    // let result = []
+
+    // let queue = []
+    // let visited = new Set()
+    // for (let i = 1; i < inDegree.length; i++) {
+    //     if (inDegree[i] === 0) queue.push(i)
+    // }
+
+    // while (queue.length > 0) {
+    //     let node = queue.shift()
+    //     result.push(node)
+
+    //     for (let neighbour of adj[node]) {
+    //         inDegree[neighbour]--
+    //         if (inDegree[neighbour] === 0) {
+    //             visited.add(neighbour)
+    //             queue.push(neighbour)
+    //         }
+    //     }
+    // }
+
+    // for (let [key, value] of map) {
+    //     for (let i = 0; i < result.length; i++) {
+    //         if (result[i] === value) {
+    //             result[i] = key
+    //         }
+    //     }
+    // }
+    
+    // return result
+
+     const graph = new Map();
+    const indegree = new Map();
+    
+    // Initialize graph and indegree map
+    project.forEach(item => {
+        graph.set(item, []);
+        indegree.set(item, 0);
+    });
+    
+    // Build the graph and indegree map
+    depend.forEach(([P, Q]) => {
+        graph.get(P).push(Q);
+        indegree.set(Q, indegree.get(Q) + 1);
+    });
+
+    // Find all nodes with 0 indegree
+    const queue = [];
+    indegree.forEach((value, key) => {
+        if (value === 0) {
+            queue.push(key);
+        }
+    });
+    
+    const buildOrder = [];
+    
+    // Process the nodes
+    while (queue.length > 0) {
+        const current = queue.shift();
+        buildOrder.push(current);
+        
+        graph.get(current).forEach(neighbor => {
+            indegree.set(neighbor, indegree.get(neighbor) - 1);
+            if (indegree.get(neighbor) === 0) {
+                queue.push(neighbor);
+            }
+        });
+    }
+    
+    // Check if there was a cycle
+    if (buildOrder.length === project.length) {
+        console.log(buildOrder.join(' '));
+    } else {
+        console.log(-1);
+    }
+}
+
+let project = ['A', 'xy', 'a', 'c', 'b'], depend = [['a', 'xy'], ['b', 'A'], ['xy', 'c']]
+let result = buildOrder(project, depend)
+console.log(result)
