@@ -48,7 +48,13 @@
    - **JavaScript Function**: Delays execution of a function or code block for a specified time interval.
    - **Single Execution**: Executes the function or code block once after the specified delay.
    - **Delay Control**: Time delay specified in milliseconds.
-   - **Example**: setTimeout(function() { console.log('Hello'); }, 1000) prints 'Hello' to the console after a 1-second delay.
+   - **Example**:
+     ```js
+        setTimeout(function() {
+           console.log('Hello');
+        }, 1000)
+      ```
+      prints 'Hello' to the console after a 1-second delay.
 
 ### Grading Quiz Week 3
 
@@ -57,7 +63,16 @@
    - **Syntax**: Functions marked with `async` keyword can use `await` to pause execution until promises resolve.
    - **Error Handling**: Simplifies error handling with traditional try-catch blocks.
    - **Sequential Code**: Allows writing asynchronous code that looks synchronous, improving readability.
-   - **Example**: async function fetchData() { try { const data = await fetch(url); console.log(data); } catch(error) { console.error('Error fetching data:', error); } }
+   - **Example**:
+     ```js
+        async function fetchData() {
+           try {
+              const data = await fetch(url); console.log(data);
+           } catch(error) {
+              console.error('Error fetching data:', error);
+           }
+        }
+     ```
 2. What is a promise and what is its type?
 
    - **Asynchronous Operation**: A JavaScript object representing the eventual completion or failure of an asynchronous operation.
@@ -77,6 +92,28 @@
    - **Chaining**: Supports chaining multiple asynchronous operations together using `then` and `catch` methods.
    - **Error Handling**: Allows handling errors in asynchronous operations gracefully using `catch`.
    - **Example**: Fetching data from an API returns a Promise, which resolves with the fetched data or rejects with an error.
+     ```js
+        function fetchData(var) {
+           return new Promise(resolve, reject){
+              if(var === 'pass'){
+                  resolve('conditioned passed')
+              }else{
+                 reject('conditioned failed')
+              }
+           }
+        }
+
+        fetchData('pass')
+           .then((data)=>{
+              console.log(data) // condition passed
+              })
+           .catch((error)=>{
+              console.log(error)
+              })
+           .finally(()=>{
+              console.log("Fetch operation completed.")
+           })
+     ```
 
 3. What is the difference between Synchronous and Asynchronous functions?
 
@@ -85,11 +122,41 @@
      - **Sequential Execution**: Executes tasks one at a time, blocking further execution until each task completes.
      - **Blocking**: Holds up the program's execution flow, waiting for the current operation to finish.
      - **Example**: Reading a file synchronously, where the program waits until the file is fully read before moving to the next line of code.
+       ```js
+       // Synchronous function to calculate the square of a number
+         function calculateSquare(number) {
+           return number * number;
+         }
+       console.log("Start");
+       calculateSquare(5);
+       console.log("End");
+
+         // Start
+         // 25
+         // End
+       ```
 
    - Asynchronous Functions
      - **Concurrent Execution**: Executes tasks without waiting for each to complete, allowing other operations to run simultaneously.
      - **Non-blocking**: Frees up the program to continue running other tasks while waiting for an asynchronous operation to complete.
      - **Example**: Fetching data from an API asynchronously, where the program continues executing other tasks while waiting for the API response.
+      ```js
+      // Asynchronous function to simulate a delayed operation
+         function delayedOperation() {
+           console.log("Start");
+
+           setTimeout(() => {
+             console.log("Operation completed after 2 seconds");
+           }, 2000);
+
+           console.log("End");
+         }
+
+         delayedOperation();
+      // Start
+      // End
+      // Operation completed after 2 seconds
+      ```
 
 4. What are the different ways of fetching data?
 
@@ -136,12 +203,15 @@
         - Overkill if jQuery is not already being used in the project.
       - **Example**: `$.ajax({ url: url, success: function(data) { console.log(data); } })`.
 
+   5. Long examples: [https://docs.google.com/document/d/13S5N8m5KZiN6KUxzKfHGk98HDkt0P5qb7TrR5VWH5ZU/edit](https://docs.google.com/document/d/13S5N8m5KZiN6KUxzKfHGk98HDkt0P5qb7TrR5VWH5ZU/edit)
+
 5. Define Callback Hell in Javascript.
    - **Nested Callbacks**: Occurs when multiple asynchronous operations are nested inside each other.
    - **Unreadable Code**: Leads to deeply nested code, making it hard to read and maintain.
    - **Difficult Debugging**: Errors and debugging become challenging due to complex nested structures.
    - **Scalability Issues**: Difficult to manage and scale as the number of nested callbacks increases.
    - **Example**: Fetching data from an API, processing it, and then saving it, all using nested callbacks, results in a pyramid-like structure of code, making it hard to follow and maintain.
+   - example: [https://docs.google.com/document/d/1Qw3EpHusiqSQzS5Il3U56wDQDfsFmpEd2PuoClPVT0A/edit](https://docs.google.com/document/d/1Qw3EpHusiqSQzS5Il3U56wDQDfsFmpEd2PuoClPVT0A/edit)
 6. What is asynchronous JavaScript?
    - **Concurrent Execution**: Allows code to execute without waiting for previous operations to complete.
    - **Non-blocking**: Frees the program to continue running other tasks while waiting for an operation to finish.
@@ -224,6 +294,8 @@
     - **Example**:
         - **REST**: Twitter API for fetching tweets using HTTP GET requests.
         - **SOAP**: PayPal SOAP API for processing payments using XML messages over HTTP.
+
+   - Examples for both: [https://docs.google.com/document/d/165DhIIHWkHZPwOtH3NxlSNkunZDk9eZqwud-JzlN2hY/edit](https://docs.google.com/document/d/165DhIIHWkHZPwOtH3NxlSNkunZDk9eZqwud-JzlN2hY/edit)
 11. What are REST APIs and why are they so popular?
     - **Definition**: Representational State Transfer (REST) APIs are a type of web service that adhere to REST architectural principles.
     - **Stateless Communication**: Requests are independent and contain all necessary information for processing.
