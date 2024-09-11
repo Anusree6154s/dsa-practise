@@ -1,3 +1,5 @@
+https://docs.google.com/document/d/1WK7Fs8RzdW9ljWQXl4SYKpCd4Q_JFtHlNCEuUmWxfos/edit#heading=h.hmskio7hicxh
+
 ## Tailwind
 
 - Css has issues like:
