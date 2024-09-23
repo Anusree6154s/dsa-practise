@@ -1,0 +1,14 @@
+// function test(x, y) {
+//     let ans
+//     switch (true) {
+//         case (x > 0 && y > 0): return 1;
+//         case (x < 0 && y > 0): return 2;
+//         case (x < 0 && y < 0): return 3;
+//         case (x > 0 && y < 0): return 4;
+
+//     }
+
+// }
+
+// console.log(test(-5.5, 2))
+[{ "pending": true, "_id": "6006cc6c6f1f590b30754f7a", "name": "Complete Node byte", "startDate": "2021-01-11T00:00:00.000Z", "endDate": "2021-01-14T00:00:00.000Z", "__v": 0 }, { "pending": true, "_id": "6006c49837787704025198a2", "name": "Play cricket", "startDate": "2021-01-06T00:00:00.000Z", "endDate": "2021-01-07T00:00:00.000Z", "__v": 0 }, { "pending": true, "_id": "6006e804c0890915e47a501b", "name": "Journal", "startDate": "2021-01-21T00:00:00.000Z", "endDate": "2021-01-30T00:00:00.000Z", "__v": 0 }, { "pending": true, "_id": "6006d7f7b11309138e8f8afe", "name": "Read book", "startDate": "2021-01-19T00:00:00.000Z", "endDate": "2021-01-22T00:00:00.000Z", "__v": 0 }, { "pending": true, "_id": "6006f0ff94d45f1bb3116b5a", "name": "Learn Node.js", "startDate": "2021-01-18T00:00:00.000Z", "endDate": "2021-02-02T00:00:00.000Z", "__v": 0 }, { "pending": true, "_id": "66b36c4057090812ba133499", "name": "Learn Nodejs by doing", "startDate": "2021-01-07T00:00:00.000Z", "endDate": "2021-01-09T00:00:00.000Z", "__v": 0 }, { "pending": true, "_id": "66b36c5e57090812ba13349b", "name": "Play yoohoo", "startDate": "2021-01-07T00:00:00.000Z", "endDate": "2021-01-09T00:00:00.000Z", "__v": 0 }, { "pending": true, "_id": "66b36ca2090fee14883ab985", "name": "Learn Nodejs by doing", "startDate": "2021-01-07T00:00:00.000Z", "endDate": "2021-01-09T00:00:00.000Z", "__v": 0 }, { "pending": true, "_id": "66b36cb631306814fdb47b36", "name": "Learn Nodejs by doing", "startDate": "2021-01-07T00:00:00.000Z", "endDate": "2021-01-09T00:00:00.000Z", "__v": 0 }, { "pending": true, "_id": "66b36cd88781f716456ae51e", "name": "Learn Nodejs by doing", "startDate": "2021-01-07T00:00:00.000Z", "endDate": "2021-01-09T00:00:00.000Z", "__v": 0 }, { "pending": true, "_id": "66b36eb525378017cb78c9c6", "name": "a", "startDate": "2024-08-08T00:00:00.000Z", "endDate": "2024-08-14T00:00:00.000Z", "__v": 0 }, { "pending": true, "_id": "66b36f9625378017cb78c9cc", "name": "b", "startDate": "2024-08-08T00:00:00.000Z", "endDate": "2024-08-30T00:00:00.000Z", "__v": 0 }, { "pending": true, "_id": "66b37006354ec719b0352568", "name": "c", "startDate": "2024-08-14T00:00:00.000Z", "endDate": "2024-08-21T00:00:00.000Z", "__v": 0 }, { "pending": true, "_id": "66b37056c9c58f1a3fe34d1f", "name": "d", "startDate": "2024-08-08T00:00:00.000Z", "endDate": "2024-08-15T00:00:00.000Z", "__v": 0 }]

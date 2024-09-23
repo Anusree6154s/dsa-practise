@@ -64,8 +64,8 @@ class ListNode {
 function copyLinkedListWithRandomPointer(head) {
     //for deep copy create a new list
     // to find the simialr random nodes in the second list: (the only common thing between original and duplicate LL is the random node VALUES)
-        // 1. first we map random node values as key and any value as value of original LL
-        //2. then we map normal node values as key and normal nodes as value using duplicate LL 
+    // 1. first we map random node values as key and any value as value of original LL
+    //2. then we map normal node values as key and normal nodes as value using duplicate LL 
 
 
     let newHead = null
@@ -84,10 +84,6 @@ function copyLinkedListWithRandomPointer(head) {
         }
         curr = curr.next
     }
-
-    console.log(newHead)
-
-
 
     //first map randon values to its LinkedList in original list
     let map = new Map()
@@ -113,7 +109,45 @@ function copyLinkedListWithRandomPointer(head) {
         newCurr = newCurr.next
     }
 
+
     return newHead
+
+
+    // let curr = head
+    // let dummy = new ListNode()
+    // let copy = dummy
+    // while (curr) {
+    //     copy.val = curr.val
+    //     curr = curr.next
+    //     if (curr) copy.next = new ListNode()
+    //     copy = copy.next
+    // }
+
+    // //map random values to curr list
+    // curr = head
+    // let map = new Map()
+    // while (curr) {
+    //     if (curr.random) map.set(curr.random.val, 1)
+    //     curr = curr.next
+    // }
+
+    // //map random values to copy list
+    // copy = dummy
+    // while (copy) {
+    //     if (map.has(copy.val)) map.set(copy.val, copy)
+    //     copy = copy.next
+    // }
+
+    // //link the random values to copy list with the help of curr list
+    // curr = head
+    // copy=dummy
+    // while (curr) {
+    //     if (curr.random) copy.random = map.get(curr.random.val) //if curr.random exits, tehn paste its similar random to copy
+    //     copy = copy.next
+    //     curr = curr.next
+    // }
+
+    // return dummy
 
 }
 
@@ -152,6 +186,7 @@ function createListNode() {
 let head = createListNode()
 console.log(head)
 let ans = copyLinkedListWithRandomPointer(head)
+console.log(ans)
 while (ans != null) {
     console.log(ans.val)
     ans = ans.next

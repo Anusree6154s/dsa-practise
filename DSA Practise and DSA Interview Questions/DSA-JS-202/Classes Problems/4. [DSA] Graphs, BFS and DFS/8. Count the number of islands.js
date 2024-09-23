@@ -47,6 +47,7 @@ function numIslands(grid) {
     // like in connections problem, we will keep checking for lands on all 4 sides, till watre comes, once water comes on unvisited side, the loop ends
     //then check for next land
     //each time we start a new land, a new island is formed
+    //mark visited ones as visited so that we dont go over them again
 
     if (!grid || grid.length == 0) return 0 //edgecase
 

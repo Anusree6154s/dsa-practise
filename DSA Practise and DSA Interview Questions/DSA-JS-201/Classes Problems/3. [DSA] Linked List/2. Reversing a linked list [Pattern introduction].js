@@ -39,17 +39,47 @@ function reverseLinkedList(head) {
     //2. flip current.next. update prev and next
     //next pointer only acts as a pointer to not lose the trailing ListNode
 
-    let prev = null
-    let current = head
-    let next = head.next
-    while (current !== null) {
-        current.next = prev
-        prev = current
-        current = next
-        if (next) next = next.next
+    // let prev = null
+    // let current = head
+    // let next = head.next
+    // while (current !== null) {
+    //     current.next = prev
+    //     prev = current
+    //     current = next
+    //     if (next) next = next.next
+    // }
+
+    // return prev
+
+
+    let dummy = new ListNode()
+    let groupPrev = dummy //node before group
+
+    while (true) {
+        let kth = getKthNode(groupPrev, k) //get kth node
+        if (!kth) break //incase group ends with lesser nodes
+        let groupNext = kth.next //node after group
+
+        let prev = groupNext //prev node should be null, but in our question it gets connected to th etail of list. connectthe tail
+        let curr = groupPrev.next //curr node is dummy.next or node before group
+        while (curr !== groupNext) {//now reverse everything between prev and curr
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+
+        let next = groupPrev.next //temp variable to get new groupPrev (just before groupNext (basically first node of group))
+        groupPrev.next = kth // connect the heads
+        groupPrev = next //new groupPrev
     }
 
-    return prev
+    function getKthNode(curr, k) {
+        while (curr && k > 0) curr = curr.next, k--
+        return curr
+    }
+
+    return dummy.next
 }
 
 //create ListNode
@@ -70,6 +100,9 @@ function createListNode() {
     }
 
     return head
+
+
+    
 }
 
 

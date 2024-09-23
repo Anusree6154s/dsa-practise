@@ -15,13 +15,13 @@ https://www.google.com/imgres?q=manhattan%20distance&imgurl=https%3A%2F%2Fwww.re
 
 
 
-// function euclideanDistance(x, y) {
-//     //manhattan dist from origin means x2=y2=0 in abs(x1-x2)+abs(y1-y2)
-//     return Math.abs(x) + Math.abs(y)
-// }
+function euclideanDistance(x, y) {
+    //manhattan dist from origin means x2=y2=0 in abs(x1-x2)+abs(y1-y2)
+    return Math.abs(x) + Math.abs(y)
+}
 
-// let a = euclideanDistance(5, 12)
-// console.log(a)
+let a = euclideanDistance(5, 12)
+console.log(a)
 
 
 // Test cases:
@@ -35,23 +35,3 @@ https://www.google.com/imgres?q=manhattan%20distance&imgurl=https%3A%2F%2Fwww.re
 // Expected result: abs(0) + abs(0) = 0
 
 
-
-function reverseBits(a, b) {
-    let xor = BigInt(a) ^ BigInt(b)
-
-
-    let count = 0
-    while (xor !== 0n) {
-        xor = xor & xor - 1n
-        count++
-    }
-
-    return count
-}
-
-
-
-
-
-let b = reverseBits(29, 15)
-console.log(b)

@@ -81,7 +81,7 @@ function courseSchedule(nodes, edges, edgelist) {
     return true //else, courses can be taken
 
     // can also be solved using topologival sort 
-    // if topologically sorted number of nodes === nodes given, then it is acyclic (means top sorted nodes will be less than given nodes all will not be considered)
+    // if topologically sorted number of nodes === nodes given, then it is acyclic (means top sorted nodes will be less than given nodes. all will not be considered)
     // means all will not have indegree equal to 0
 }
 
