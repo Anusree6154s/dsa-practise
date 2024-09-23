@@ -50,13 +50,46 @@
 
 // 1 ≤ v[i] ≤ 1000000000
 
-function maxValue(W, weight, value) {
-    //classical 0/1 knapsack problem
-    //we do using dp so that we get the optimum result
 
-    for(let i=0; i<W; i++){
-        
+function maxValue(W, weight, value) {
+    //total capacity = W
+    //sort the weights by decreasing value
+    //for the last weight, take fraction of weight and value
+
+    let N = weight.length;
+    // Initialize a 2D DP array with (N+1) x (W+1) dimensions, filled with 0s
+    const dp = Array.from({ length: N + 1 }, () => Array(W + 1).fill(0));
+
+    // Build the DP table
+    for (let i = 1; i <= N; i++) {
+        for (let w = 0; w <= W; w++) {
+            if (weight[i - 1] <= w) {
+                dp[i][w] = Math.max(dp[i - 1][w], dp[i - 1][w - weight[i - 1]] + value[i - 1]);
+            } else {
+                dp[i][w] = dp[i - 1][w];
+            }
+        }
     }
 
-    
+    // The maximum value that can be taken home is found in dp[N][W]
+    return dp[N][W];
+
+    // let arr = []
+    // for (let i = 0; i < weight.length; i++) {//O(n)
+    //     arr.push([weight[i], value[i]])
+    // }
+
+    // arr.sort((a, b) => b[1] - a[1]) //O(nlogn)
+
+    // let totW = 0
+    // let totV = 0
+    // for (let i = 0; totW < W; i++) {
+    //     if (totW + weight[i] <= W) {
+    //         totW += weight[i]
+    //         totV += value[i]
+    //     }
+    // }
+
+    // return totV
+
 }
