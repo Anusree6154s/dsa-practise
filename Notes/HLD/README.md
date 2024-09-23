@@ -1,0 +1,3 @@
+- HLD-1 Module Bytes Notes:  https://docs.google.com/document/d/1L8ci73CENx23N29KQf9T_fQ53PaKiqa0BAKZm3LnF4k/edit
+- HLD-1 Lecture Notes: 
+- HLD-1 PPT Notes: https://docs.google.com/document/d/1dZ_lWsV7pk_qYKGne50-RgvnMA4KfqFRVM6TT5mZ2Iw/edit#heading=h.y757q0y9kq4w
