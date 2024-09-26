@@ -1,0 +1,2 @@
+- DSA 203 PPT Notes - https://docs.google.com/document/d/13JlM_CdqrNRFBS_2gDyKqo4l0RAQ-UvXxUNs-EslaqI/edit#heading=h.k0lw19ilclna
+- DSA 203 Lecture Notes - https://docs.google.com/document/d/1uO-Gd6lx_DiUul9P0wRfR_UTP8QWUj9NKDzk58UW4YI/edit#heading=h.xvgpqi2iv2xt
