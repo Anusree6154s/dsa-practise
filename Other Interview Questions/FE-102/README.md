@@ -1,5 +1,6 @@
 ## Interview Questions
 
+- [my own answers](https://docs.google.com/document/d/11dg2QV8ev8at5TvSK199dvA6DQApNG0501rnvAwmwtA/edit?tab=t.wah5b4pgutnd)
 ### Grading Quiz Week 2
 
 1. What are async and defer?
