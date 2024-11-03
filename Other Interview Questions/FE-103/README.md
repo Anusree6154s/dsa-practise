@@ -1,5 +1,6 @@
 ## Interview Questions
 
+- [my own answers](https://docs.google.com/document/d/11dg2QV8ev8at5TvSK199dvA6DQApNG0501rnvAwmwtA/edit?tab=t.gei4ufz2he0n)
 ### Grading Quiz (Video) 3 FE-103 Week 1
 
 1. What are Event Listeners?
