@@ -1,8 +1,23 @@
-## Interview Questions
+# Interview Questions
 
-### From classes 
-- [Interview questions with crio answers](https://docs.google.com/document/d/18lR8iVW2g4zXvaafUYlOFu6g6Ry1YKVSYksg0CHEM-U/edit?addon_store)
+### Table of Contents
+1. [Given as in classes](#from-classes)
+2. [Given as Grading Quiz](#from-grading-quiz)
 
+
+## From Classes
+
+- [Crio Interview questions with crio answers](https://docs.google.com/document/d/18lR8iVW2g4zXvaafUYlOFu6g6Ry1YKVSYksg0CHEM-U/edit?addon_store)
+
+
+- [Crio Interview questions with my own answers](https://docs.google.com/document/d/11dg2QV8ev8at5TvSK199dvA6DQApNG0501rnvAwmwtA/edit?usp=sharing) 
+
+
+
+
+## From Grading Quiz
+
+These are the answers I gave for mock interviews in Crio. It was lengthy and learnt many by eart and I now think that wasn't necessary. So I refer to [this](https://docs.google.com/document/d/11dg2QV8ev8at5TvSK199dvA6DQApNG0501rnvAwmwtA/edit?usp=sharing) 
 ### Grading Quiz Week 1
 
 1. What are the differences between HTML and HTML5?
