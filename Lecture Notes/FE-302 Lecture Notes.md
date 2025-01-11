@@ -1,2 +1,0 @@
-- FE-302 Lecture Notes: https://docs.google.com/document/d/1WK7Fs8RzdW9ljWQXl4SYKpCd4Q_JFtHlNCEuUmWxfos/edit#heading=h.hmskio7hicxh
-- FE-302 PPT Notes: https://docs.google.com/document/d/1qbhQRJ-TQsOH1f9sIhyac48CWu7V6Oes-GO_ptnqByk/edit
