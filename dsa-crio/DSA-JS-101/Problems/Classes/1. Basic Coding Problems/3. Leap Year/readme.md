@@ -12,5 +12,5 @@ true
 Year 1600 is a leap year
 
 ## Answer
-- leap year if divisible by 100 and 400, and 4 (2 checks) 
+- leap year if divisible by 4 and not by 100, and 400 (2 checks) 
 - tc=1, sc=1
