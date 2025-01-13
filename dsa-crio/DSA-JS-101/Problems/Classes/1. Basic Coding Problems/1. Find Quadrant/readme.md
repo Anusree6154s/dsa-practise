@@ -23,3 +23,5 @@ Given coordinates of a point (x,y) in 2D plane, Find in which quadrant does this
 - if x -ve, y +ve, then 2nd quadrant
 - if x -ve, y -ve, then 3rd quadrant
 - if x +ve, y -ve, then 4th quadrant
+
+- tc=1, sc=1
