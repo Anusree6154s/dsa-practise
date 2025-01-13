@@ -1,5 +1,5 @@
 // Problem Description
-// Write a program that reverses a resulting.
+// Write a program that reverses a string.
 
 // Sample Input 1
 // abc
@@ -10,8 +10,8 @@
 // Explanation
 // cba is reverse of abc.
 
-// Conresultaints
-// Print the reverse of the resulting in a single line.
+// Constraints
+// Print the reverse of the string in a single line.
 
 
 function reverseresulting(str) {
