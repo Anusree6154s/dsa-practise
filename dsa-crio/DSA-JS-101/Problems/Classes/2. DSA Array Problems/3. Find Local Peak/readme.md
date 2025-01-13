@@ -37,6 +37,6 @@ Here, 4 is a local peak as 4 > 2 and there is no integer left of 4
 1 <= arr[i] <= 10^9
 ## Answer
 - Finding peaks: elements with nearby smaller elements
-- for loop with exceptions(when i=-2 ann i==n)
+- for loop with exceptions(when i=-2 and i==n)
 for rest all if element at each side is smaller, then record it as a peak
 -tc=n, sc=n

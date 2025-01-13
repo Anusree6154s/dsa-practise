@@ -27,3 +27,5 @@ The input array contains four integers [3, 17, 100, 20]
 1 <= |arr[i]| <= 8 where |arr[i]| is the length of the string
 
 ## Answer
+- for loop. extract only those elemnts of typeof number
+- tc=n, sc=n
