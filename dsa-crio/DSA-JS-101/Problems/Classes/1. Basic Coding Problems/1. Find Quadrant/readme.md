@@ -1,4 +1,4 @@
-### Question
+## Question
 
 #### Problem Description
 
@@ -16,7 +16,7 @@ Given coordinates of a point (x,y) in 2D plane, Find in which quadrant does this
 
 - The x-coordinate is negative and the y-coordinate is positive which means the point lies in the 2nd quadrant.
 
-### Answer
+## Answer
 
 - Use if/else to check the signs of x and y coordinates
 - if x +ve, y +ve, then 1st quadrant
