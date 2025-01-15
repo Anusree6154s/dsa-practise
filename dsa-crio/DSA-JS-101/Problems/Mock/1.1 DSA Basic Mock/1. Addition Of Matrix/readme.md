@@ -40,3 +40,5 @@ The addition of the given two matrices results in the given output.
 
 - for each element of both matrix, add them
 - tc=`n*m`, sc=`n*m`
+- <img src='https://github.com/user-attachments/assets/3c56c361-61c4-412e-985d-59dcc09fe667' width='400' />
+- <img src='https://github.com/user-attachments/assets/32c89764-ea73-47b0-bd7b-864dd02151be' width='500' />
