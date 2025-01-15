@@ -38,6 +38,7 @@ T4 = T3 + T2 + T1 = 2 + 1 + 1 = 4
 ## Answer
 - fibonnacci like, but base: ifn==0 ret 0, if n==1 ret1, if n==2 ret2. recur: return f(n-1)+f(n-2)+f(n-3)
     - tc=^n, sc=n
+    - <img src='https://github.com/user-attachments/assets/eedde4c1-e212-419f-9755-b389d7cdfa0a' width='500'/>
 - optimised:
     - memoise answer each time and use it and dont calculate
     - tc=n, sc=n

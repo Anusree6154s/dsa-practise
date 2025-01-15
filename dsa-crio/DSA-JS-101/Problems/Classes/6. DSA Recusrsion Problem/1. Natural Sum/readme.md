@@ -22,6 +22,7 @@ Print the sum of first N natural numbers.
     - base:if n=0, return 
     - recur: return n+ fn(n-1)
     - tc=n, sc=n
+    - <img src='https://github.com/user-attachments/assets/7edb4744-9e2c-4177-947c-b8adbe533033' width=300/>
 - optimised:
     - memoise answer each time and use it and dont calculate
     - tc=n, sc=n
