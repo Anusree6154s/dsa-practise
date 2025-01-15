@@ -20,6 +20,7 @@ Print the nth fibonacci number.
     - base: if n=1 return 1, if n=0 return 0
     - recur: return func(n-1)+func(n-2)
     - tc=2^n, sc=n
+    - <img src='https://github.com/user-attachments/assets/ac8d9fb6-70f0-484f-b5dc-0b4ce6fc7bf2' width='500'/>
     - <img src='https://github.com/user-attachments/assets/8461bff5-9081-4e82-bd1e-53f976112641' width='600'/>
     - in reality tc is smaller than 2^n but closer to it. (cuz of being cut off by base cases)
 - optimised:
