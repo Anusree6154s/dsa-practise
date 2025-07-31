@@ -1,1 +1,4 @@
-Starts with Strivers 79 sheet followed by SDE sheet
+- Strivers A2Z sheet
+- Coding in cpp: 
+    - To run code install coderunner and press `ctrl+alt+N`
+    - Set `"terminal.integrated.defaultProfile.windows": "Command Prompt"` in settings.json in vscode
