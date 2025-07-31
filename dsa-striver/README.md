@@ -1,4 +1,4 @@
-- Strivers A2Z sheet
+- [Striver's A2Z sheet](https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/)
 - Coding in cpp: 
     - To run code install coderunner and press `ctrl+alt+N`
     - Set `"terminal.integrated.defaultProfile.windows": "Command Prompt"` in settings.json in vscode
