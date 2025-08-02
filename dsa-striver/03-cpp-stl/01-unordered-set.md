@@ -117,19 +117,19 @@ int main() {
 ```
 
 > [!NOTE]
-> The main reason you see `#include ` used for vectors but `#include ` used for unordered sets (or other STL containers) is related to **which header files you need to explicitly include in standard C++** versus what `bits/stdc++.h` does:
+> The main reason you see `#include <iostream>` used for vectors but `#include <bits/stdc++.h>` used for unordered sets (or other STL containers) is related to **which header files you need to explicitly include in standard C++** versus what `bits/stdc++.h` does:
 >
->- `#include ` only includes the I/O stream library (for `cin`, `cout`, etc.). So if your code just needs input/output and you include `` explicitly, that works fine.
+>- `#include <iostream>` only includes the I/O stream library (for `cin`, `cout`, etc.). So if your code just needs input/output and you include `<vector>` explicitly, that works fine.
 >  
->- `#include ` is a **non-standard header** (mostly available in GCC) that includes **all standard C++ headers** at once—iostream, vector, string, unordered_set, map, algorithm, etc. It is convenient in competitive programming so you don't have to include every header separately. But it increases compile time and isn't portable outside GCC.
+>- `#include <bits/stdc++.h>` is a **non-standard header** (mostly available in GCC) that includes **all standard C++ headers** at once—iostream, vector, string, unordered_set, map, algorithm, etc. It is convenient in competitive programming so you don't have to include every header separately. But it increases compile time and isn't portable outside GCC.
 >
->### Why use only `` sometimes?
+>### Why use only `<iostream>` sometimes?
 >
 >If your example only uses `std::vector` and basic I/O, you should explicitly include only those headers you need:
 >
 >```cpp
->#include 
->#include 
+>#include <iostream>
+>#include <vector>
 >```
 >
 >This is considered good practice especially in production code.
@@ -139,9 +139,9 @@ int main() {
 >If someone uses `bits/stdc++.h`, they get all the standard containers and algorithms included automatically, so they don't have to add:
 >
 >```cpp
->#include 
->#include 
->#include 
+>#include <unordered_set>
+>#include <vector>
+>#include <iostream>
 >```
 >
 >It’s just a shortcut often used in competitive programming and quick prototyping.
