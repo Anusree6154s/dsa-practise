@@ -23,30 +23,30 @@
 2. [Patterns](./02-patterns/)
    - <table>
      <tr>
-     <td><a href='./02-patterns/01/readme.md'><img src='./02-patterns/01/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/02/readme.md'><img src='./02-patterns/02/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/03/readme.md'><img src='./02-patterns/03/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/04/readme.md'><img src='./02-patterns/04/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/05/readme.md'><img src='./02-patterns/05/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/06/readme.md'><img src='./02-patterns/06/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/07/readme.md'><img src='./02-patterns/07/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/08/readme.md'><img src='./02-patterns/08/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/09/readme.md'><img src='./02-patterns/09/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/10/readme.md'><img src='./02-patterns/10/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/11/readme.md'><img src='./02-patterns/11/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/01/'>1.<img src='./02-patterns/01/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/02/'>2.<img src='./02-patterns/02/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/03/'>3.<img src='./02-patterns/03/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/04/'>4.<img src='./02-patterns/04/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/05/'>5.<img src='./02-patterns/05/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/06/'>6.<img src='./02-patterns/06/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/07/'>7.<img src='./02-patterns/07/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/08/'>8.<img src='./02-patterns/08/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/09/'>9.<img src='./02-patterns/09/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/10/'>10.<img src='./02-patterns/10/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/11/'>11.<img src='./02-patterns/11/image.png' width='50px' /></a></td>
      </tr>
      <tr>
-     <td><a href='./02-patterns/12/readme.md'><img src='./02-patterns/12/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/13/readme.md'><img src='./02-patterns/13/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/14/readme.md'><img src='./02-patterns/14/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/15/readme.md'><img src='./02-patterns/15/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/16/readme.md'><img src='./02-patterns/16/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/17/readme.md'><img src='./02-patterns/17/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/18/readme.md'><img src='./02-patterns/18/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/19/readme.md'><img src='./02-patterns/19/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/20/readme.md'><img src='./02-patterns/20/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/21/readme.md'><img src='./02-patterns/21/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/22/readme.md'><img src='./02-patterns/22/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/13'>12.<img src='./02-patterns/13/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/14'>13.<img src='./02-patterns/14/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/15'>14.<img src='./02-patterns/15/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/12'>15.<img src='./02-patterns/12/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/16'>16.<img src='./02-patterns/16/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/17'>17.<img src='./02-patterns/17/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/18'>18.<img src='./02-patterns/18/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/19'>19.<img src='./02-patterns/19/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/20'>20.<img src='./02-patterns/20/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/21'>21.<img src='./02-patterns/21/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/22'>22.<img src='./02-patterns/22/image.png' width='50px' /></a></td>
      </tr>
      </table>
 
