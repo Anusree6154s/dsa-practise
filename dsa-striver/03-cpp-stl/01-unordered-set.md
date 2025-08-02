@@ -117,7 +117,7 @@ int main() {
 ```
 
 > [!NOTE]
-> The main reason you see `#include <iostream>` used for vectors but `#include <bits/stdc++.h>` used for unordered sets (or other STL containers) is related to **which header files you need to explicitly include in standard C++** versus what `bits/stdc++.h` does:
+> The main reason you see [`#include <iostream>` used for vectors](./02-vector.md/#code) but [`#include <bits/stdc++.h>` used for unordered sets](./01-unordered-set.md/#code) (or other STL containers) is related to **which header files you need to explicitly include in standard C++** versus what `bits/stdc++.h` does:
 >
 >- `#include <iostream>` only includes the I/O stream library (for `cin`, `cout`, etc.). So if your code just needs input/output and you include `<vector>` explicitly, that works fine.
 >  
