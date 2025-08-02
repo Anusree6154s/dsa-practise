@@ -49,3 +49,8 @@
      <td><a href='./02-patterns/22/readme.md'><img src='./02-patterns/22/image.png' width='50px' /></a></td>
      </tr>
      </table>
+
+
+### ToDo
+- [ ] redo all questions so far using coding practise steps
+- [ ] complete pattern 22
