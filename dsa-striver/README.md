@@ -23,17 +23,17 @@
 2. [Patterns](./02-patterns/)
    - <table>
      <tr>
-     <td><a href='./02-patterns/01/'>1.<img src='./02-patterns/01/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/02/'>2.<img src='./02-patterns/02/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/03/'>3.<img src='./02-patterns/03/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/04/'>4.<img src='./02-patterns/04/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/05/'>5.<img src='./02-patterns/05/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/06/'>6.<img src='./02-patterns/06/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/07/'>7.<img src='./02-patterns/07/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/08/'>8.<img src='./02-patterns/08/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/09/'>9.<img src='./02-patterns/09/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/10/'>10.<img src='./02-patterns/10/image.png' width='50px' /></a></td>
-     <td><a href='./02-patterns/11/'>11.<img src='./02-patterns/11/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/01'>1.<img src='./02-patterns/01/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/02'>2.<img src='./02-patterns/02/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/03'>3.<img src='./02-patterns/03/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/04'>4.<img src='./02-patterns/04/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/05'>5.<img src='./02-patterns/05/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/06'>6.<img src='./02-patterns/06/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/07'>7.<img src='./02-patterns/07/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/08'>8.<img src='./02-patterns/08/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/09'>9.<img src='./02-patterns/09/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/10'>10.<img src='./02-patterns/10/image.png' width='50px' /></a></td>
+     <td><a href='./02-patterns/11'>11.<img src='./02-patterns/11/image.png' width='50px' /></a></td>
      </tr>
      <tr>
      <td><a href='./02-patterns/13'>12.<img src='./02-patterns/13/image.png' width='50px' /></a></td>
