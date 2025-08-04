@@ -1,6 +1,6 @@
 ### What is an unordered set?
 
-An unordered set in STL is a container that **stores unique elements** in no particular order. Every operation on an unordered set takes **O(1) complexity** in the average case and takes **O(n) in the worst case**.
+An unordered set in STL is a container that **stores unique elements in no particular order**. Every operation on an unordered set takes **O(1) complexity** in the average case and takes **O(n) in the worst case**.
 
 ### Syntax:
 

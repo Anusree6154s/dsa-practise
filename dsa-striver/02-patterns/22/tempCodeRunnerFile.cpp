@@ -1,1 +1,0 @@
- << "(" << min(min(dist_up, dist_down), min(dist_right, dist_left)) << "-" << dist_up << "," << dist_down << "," << dist_right << "," << dist_le
