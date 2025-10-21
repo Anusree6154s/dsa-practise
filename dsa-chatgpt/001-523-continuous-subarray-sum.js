@@ -1,29 +1,28 @@
 // 523. continuous-subarray-sum
 
 /**
- * @param {number[]} nums
- * @param {number} k
- * @return {boolean}
- */
-var checkSubarraySum = function (nums, k) {
-    // check if current prefix%k in map
-    // if yes, check if i-map.get(prefix%k) >=2
-    // if yes return true
-    // else store prefix%k in map and next loop
-    let prefix = 0
-    const map = new Map([[0, -1]])// to handle subarrays 
-starting at index 0
-    for (let i = 0; i < nums.length; i++) {
-        prefix = prefix + nums[i]
-        const remainder = k === 0 ? prefix : prefix % k
-        if (map.has(remainder)) {
-            const prevRemIndex = map.get(remainder)
-            const subarrayLen = i - prevRemIndex
-            if (subarrayLen >= 2) return true
-        } else {
-            map.set(remainder, i)
-        }
-    }
+Â *Â @paramÂ {number[]}Â nums
+Â *Â @paramÂ {number}Â k
+Â *Â @returnÂ {boolean}
+Â */
+varÂ checkSubarraySumÂ =Â functionÂ (nums,Â k)Â {
+Â Â Â Â //Â checkÂ ifÂ currentÂ prefix%kÂ inÂ map
+Â Â Â Â //Â ifÂ yes,Â checkÂ ifÂ i-map.get(prefix%k)Â >=2
+Â Â Â Â //Â ifÂ yesÂ returnÂ true
+Â Â Â Â //Â elseÂ storeÂ prefix%kÂ inÂ mapÂ andÂ nextÂ loop
+Â Â Â Â letÂ prefixÂ =Â 0
+Â Â Â Â constÂ mapÂ =Â newÂ Map([[0,Â -1]])//Â toÂ handleÂ subarraysÂ startingÂ atÂ indexÂ 0
+Â Â Â Â forÂ (letÂ iÂ =Â 0;Â iÂ <Â nums.length;Â i++)Â {
+Â Â Â Â Â Â Â Â prefixÂ =Â prefixÂ +Â nums[i]
+Â Â Â Â Â Â Â Â constÂ remainderÂ =Â kÂ ===Â 0Â ?Â prefixÂ :Â prefixÂ %Â k
+Â Â Â Â Â Â Â Â ifÂ (map.has(remainder))Â {
+Â Â Â Â Â Â Â Â Â Â Â Â constÂ prevRemIndexÂ =Â map.get(remainder)
+Â Â Â Â Â Â Â Â Â Â Â Â constÂ subarrayLenÂ =Â iÂ -Â prevRemIndex
+Â Â Â Â Â Â Â Â Â Â Â Â ifÂ (subarrayLenÂ >=Â 2)Â returnÂ true
+Â Â Â Â Â Â Â Â }Â elseÂ {
+Â Â Â Â Â Â Â Â Â Â Â Â map.set(remainder,Â i)
+Â Â Â Â Â Â Â Â }
+Â Â Â Â }
 
-    return false
+Â Â Â Â returnÂ false
 };
