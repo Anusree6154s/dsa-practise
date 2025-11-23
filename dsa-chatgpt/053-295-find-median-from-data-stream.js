@@ -1,123 +1,140 @@
 // 295. find-median-from-data-stream
 
+var MedianFinder = function () {
+  class MaxHeap {
+    constructor() {
+      this.heap = [];
+    }
 
-        push(val) {
-            this.heap.push(val)
-            this.bubbleUp(this.heap.length - 1)
-        }
+    getParent(i) {
+      return Math.floor((i - 1) / 2);
+    }
+    getLeft(i) {
+      return 2 * i + 1;
+    }
+    getRight(i) {
+      return 2 * i + 2;
+    }
 
-        bubbleUp(index) {
-            while (index > 0) {
-                let parent = this.getParent(index)
-                if (this.heap[index] <= this.heap[parent]) break //parent must be larger than current index
-                this.swap(index, parent)
-                index = parent
-            }
+    swap(i, j) {
+      [this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]];
+    }
 
-        }
+    push(val) {
+      this.heap.push(val);
+      this.bubbleUp(this.heap.length - 1);
+    }
 
-        bubbleDown(index) {
-            while (true) { //asssume curr index to be largest and find largest till curr index is still the largest
-                let left = this.getLeft(index)
-                let right = this.getRight(index)
-                let largest = index
+    bubbleUp(index) {
+      while (index > 0) {
+        let parent = this.getParent(index);
+        if (this.heap[index] <= this.heap[parent]) break; //parent must be larger than current index
+        this.swap(index, parent);
+        index = parent;
+      }
+    }
 
-                if (left < this.heap.length && this.heap[left] > this.heap[largest]) largest = left
-                if (right < this.heap.length && this.heap[right] > this.heap[largest]) largest = right
+    bubbleDown(index) {
+      while (true) {
+        //asssume curr index to be largest and find largest till curr index is still the largest
+        let left = this.getLeft(index);
+        let right = this.getRight(index);
+        let largest = index;
 
-                if (largest === index) break
-                this.swap(largest, index)
-                index = largest
-            }
-        }
+        if (left < this.heap.length && this.heap[left] > this.heap[largest])
+          largest = left;
+        if (right < this.heap.length && this.heap[right] > this.heap[largest])
+          largest = right;
 
-        pop() {
-            if (this.heap.length == 0) return null
-            if (this.heap.length == 1) return this.heap.pop()
+        if (largest === index) break;
+        this.swap(largest, index);
+        index = largest;
+      }
+    }
 
-            let max = this.heap[0]
-            this.heap[0] = this.heap.pop()
-            this.bubbleDown(0)
+    pop() {
+      if (this.heap.length == 0) return null;
+      if (this.heap.length == 1) return this.heap.pop();
 
-            return max
-        }
+      let max = this.heap[0];
+      this.heap[0] = this.heap.pop();
+      this.bubbleDown(0);
 
-        peek() {
-            return this.heap[0]
-        }
-    }
+      return max;
+    }
 
-    class MinHeap extends MaxHeap {
-        bubbleUp(i) {
-            while (i > 0) {
-                let p = this.getParent(i)
-                if (this.heap[p] <= this.heap[i]) break
-                this.swap(p, i)
-                i = p
-            }
-        }
+    peek() {
+      return this.heap[0];
+    }
+  }
 
-        bubbleDown(i) {
-            let n = this.heap.length
-            while (true) {
-                let l = this.getLeft(i)
-                let r = this.getRight(i)
-                let smallest = i
+  class MinHeap extends MaxHeap {
+    bubbleUp(i) {
+      while (i > 0) {
+        let p = this.getParent(i);
+        if (this.heap[p] <= this.heap[i]) break;
+        this.swap(p, i);
+        i = p;
+      }
+    }
 
-                if (l < n && this.heap[l] < this.heap[smallest]) smallest = l
-                if (r < n && this.heap[r] < this.heap[smallest]) smallest = r
+    bubbleDown(i) {
+      let n = this.heap.length;
+      while (true) {
+        let l = this.getLeft(i);
+        let r = this.getRight(i);
+        let smallest = i;
 
-                if (smallest == i) break
+        if (l < n && this.heap[l] < this.heap[smallest]) smallest = l;
+        if (r < n && this.heap[r] < this.heap[smallest]) smallest = r;
 
-                this.swap(smallest, i)
-                i = smallest
-            }
-        }
-    }
+        if (smallest == i) break;
 
-    this.left = new MaxHeap() // put small numbers in it, to get largest among small numbers
-    this.right = new MinHeap() // put larger numbers in it. to get smallest among large numbers
-};
+        this.swap(smallest, i);
+        i = smallest;
+      }
+    }
+  }
 
-/** 
- * @param {number} num
- * @return {void}
- */
-MedianFinder.prototype.addNum = function (num) {
-    if (!this.left.peek() || num <= this.left.peek()) {
-        this.left.push(num)
-    } else {
-        this.right.push(num)
-    }
-
-    // balance - move them from one to another
-    if (this.left.heap.length > this.right.heap.length + 1) {
-        this.right.push(this.left.pop())
-    }
-
-    if (this.right.heap.length > this.left.heap.length) {
-        this.left.push(this.right.pop())
-    }
+  this.left = new MaxHeap(); // put small numbers in it, to get largest among small numbers
+  this.right = new MinHeap(); // put larger numbers in it. to get smallest among large numbers
 };
 
 /**
- * @return {number}
- */
-MedianFinder.prototype.findMedian = function () {
-    if (this.left.heap.length > this.right.heap.length) {
-        return this.left.peek() // odd count. median is on left
-    }
-        }
-            [this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]]
-        swap(i, j) {
+ * @param {number} num
+ * @return {void}
+ */
+MedianFinder.prototype.addNum = function (num) {
+  if (!this.left.peek() || num <= this.left.peek()) {
+    this.left.push(num);
+  } else {
+    this.right.push(num);
+  }
 
-        getRight(i) { return 2 * i + 2 }
-        getLeft(i) { return 2 * i + 1 }
-        getParent(i) { return Math.floor((i - 1) / 2) }
+  // balance - move them from one to another
+  if (this.left.heap.length > this.right.heap.length + 1) {
+    this.right.push(this.left.pop());
+  }
 
-        }
-            this.heap = []
-        constructor() {
-    class MaxHeap {
-var MedianFinder = function () {
+  if (this.right.heap.length > this.left.heap.length) {
+    this.left.push(this.right.pop());
+  }
+};
 
+/**
+ * @return {number}
+ */
+MedianFinder.prototype.findMedian = function () {
+  if (this.left.heap.length > this.right.heap.length) {
+    return this.left.peek(); // odd count. median is on left
+  }
+
+  return (this.left.peek() + this.right.peek()) / 2;
+};
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * var obj = new MedianFinder()
+ * obj.addNum(num)
+ * var param_2 = obj.findMedian()
+ */
